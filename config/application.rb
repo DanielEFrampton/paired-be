@@ -12,8 +12,12 @@ require "action_mailer/railtie"
 # require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
-# require "sprockets/railtie"
+require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+
+# SearchObjectGraphQL
+require 'search_object'
+require 'search_object/plugin/graphql'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -33,5 +37,8 @@ module PairedBe
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # For GraphiQL, in conjunction with above requirement of sprockets/railtie
+    config.middleware.use Rack::MethodOverride
   end
 end
