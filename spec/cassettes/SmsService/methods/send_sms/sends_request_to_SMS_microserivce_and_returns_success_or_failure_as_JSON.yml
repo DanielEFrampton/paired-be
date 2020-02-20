@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://paired-sms.herokuapp.com/request
+    body:
+      encoding: UTF-8
+      string: '{"phone_number":"3173407146","message":"Matt Simon has booked a pairing
+        session with you on Friday, October 22nd on Paired! Visit http://paired.tech/schedule
+        to view this booking.","sms_token":"23Gfoaocjre934fkv0930wjf09439r4jv"}'
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Connection:
+      - keep-alive
+      Server:
+      - gunicorn/20.0.4
+      Date:
+      - Thu, 20 Feb 2020 23:35:34 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '34'
+      Access-Control-Allow-Origin:
+      - "*"
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: SM101f3c35147c4390af239abbb35f5fc0
+    http_version: null
+  recorded_at: Thu, 20 Feb 2020 23:35:34 GMT
+recorded_with: VCR 5.1.0
