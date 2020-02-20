@@ -185,6 +185,10 @@ GEM
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
     ruby_dep (1.5.0)
+    search_object (1.2.3)
+    search_object_graphql (0.3.1)
+      graphql (~> 1.8)
+      search_object (~> 1.2.2)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
     simplecov (0.18.2)
@@ -235,6 +239,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rspec-rails
+  search_object_graphql
   shoulda-matchers
   simplecov
   sprockets (~> 3)
