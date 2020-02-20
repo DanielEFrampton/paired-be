@@ -7,19 +7,17 @@ class SmsService
   private
 
     def serialize_message_data(phone_number, message)
-      data = {
+      JSON.generate(
         phone_number: phone_number,
         message: message,
         sms_token: ENV['TWILIO_SERVICE_TOKEN']
-      }
-      JSON.generate(data)
+      )
     end
 
     def send_request(message_data)
-      response = connection.post('/request') do |request|
+      connection.post('/request') do |request|
         request.body = message_data
       end
-      response
     end
 
     def connection
