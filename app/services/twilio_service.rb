@@ -1,12 +1,12 @@
 class TwilioService
   def appointment_request(name, phone_number, time)
-    send_request('/request', name, phone_number, time)
+    send_request('request', name, phone_number, time)
   end
 
   private
     def connection
       Faraday.new(url: 'https://paired-sms.herokuapp.com') do |f|
-        f.adapter = default_adapter
+        f.adapter Faraday.default_adapter
       end
     end
 
@@ -22,8 +22,7 @@ class TwilioService
     end
 
     def send_request(url, name, phone_number, time)
-      response = connection.post do |request|
-        request.url = url
+      response = connection.post(url) do |request|
         request.body = generate_request(name, phone_number, time)
       end
       response
