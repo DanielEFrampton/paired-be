@@ -91,6 +91,7 @@ GEM
       net-http-pipeline
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    graphql (1.10.3)
     highline (1.7.10)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
@@ -223,6 +224,7 @@ DEPENDENCIES
   byebug
   factory_bot_rails
   faker
+  graphql
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
