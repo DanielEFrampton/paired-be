@@ -5,3 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+include FactoryBot::Syntax::Methods
+
+User.destroy_all
+Interest.destroy_all
+Skill.destroy_all
+Pairing.destroy_all
+
+10.times do
+  create(:user)
+end
+
+30.times do
+  count = User.count - 1
+  user = User.offset(rand(0..count)).limit(1).first
+  create(:skill, user: user )
+end
+
+5.times do
+  count = User.count - 1
+  user_1 = User.offset(rand(0..count)).limit(1).first
+  user_2 = User.offset(rand(0..count)).limit(1).first
+
+  user_1.pairees << user_2
+  user_2.pairers << user_1
+end

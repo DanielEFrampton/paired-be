@@ -2,5 +2,11 @@ language: ruby
 rvm:
 - 2.5.3
 
+services:
+  - postgresql
+
 before_install:
   - gem install bundler
+
+before_script:
+  - psql -c 'create database paired_be_test;' -U postgres
