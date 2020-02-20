@@ -36,6 +36,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'selenium-webdriver'
+  gem 'vcr'
+  gem 'webdrivers'
+  gem 'webmock'
 end
 
 group :development do
