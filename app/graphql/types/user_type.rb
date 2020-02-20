@@ -1,6 +1,7 @@
-module Type
+module Types
   class UserType < Types::BaseObject
     field :id, ID, null: false
+    field :name, String, null: false
     field :mod, String, null: false
     field :program, String, null: false
     field :pronouns, String, null: false
