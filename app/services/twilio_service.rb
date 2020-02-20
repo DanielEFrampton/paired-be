@@ -1,4 +1,7 @@
 class TwilioService
+  def appointment_request(name, phone_number, time)
+    send_request('/request', name, phone_number, time)
+  end
 
   private
     def connection
@@ -16,5 +19,13 @@ class TwilioService
       }
 
       data.to_json
+    end
+
+    def send_request(url, name, phone_number, time)
+      response = connection.post do |request|
+        request.url = url
+        request.body = generate_request(name, phone_number, time)
+      end
+      response
     end
 end
