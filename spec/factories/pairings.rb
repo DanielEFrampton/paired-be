@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :pairing do
-    times { 'lunch' }
+    time { 'lunch' }
     date { 'Wed Apr 03 2020'}
   end
 end
