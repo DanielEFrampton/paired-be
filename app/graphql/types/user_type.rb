@@ -9,5 +9,7 @@ module Types
     field :email, String, null: false
     field :image, String, null: false
     field :phone_number, String, null: false
+
+    field :skills, [Types::SkillType], null: true
   end
 end
