@@ -5,16 +5,21 @@ feature SmsService do
     feature 'send_sms' do
       scenario 'sends request to SMS microserivce and returns success or failure as JSON', :vcr do
         phone_number = ENV['TEST_PHONE_NUMBER']
-        message = "Matt Simon has booked a pairing session with you on Friday,"+
-                  " October 22nd on Paired! Visit http://paired.tech/schedule"+
-                  " to view this booking."
+        message = "Matt Simon has booked a pairing session with you " +
+                  "from 4:10-4:40pm on Thursday, October 22nd using " +
+                  "Paired! View it at https://www.paired.tech."
 
-        response = SmsService.new.send_sms(phone_number, message)
+        response_1 = SmsService.new.send_sms(phone_number, message)
 
-        # parsed_response = JSON.parse(response.body)
+        expect(response_1.class).to eq(Hash)
+        expect(response_1['response']).to eq('success')
 
-        # expect(parsed_response.class).to eq(Hash)
-        # expect(parsed_response['result']).eq ('success')
+        invalid_number = '12345'
+
+        response_2 = SmsService.new.send_sms(invalid_number, message)
+
+        expect(response_2.class).to eq(Hash)
+        expect(response_2['response']).to eq('Invalid request')
       end
     end
   end
