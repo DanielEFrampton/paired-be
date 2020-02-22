@@ -13,12 +13,12 @@ module Types
       argument :id, ID, required: true
     end
 
-    def get_user_pairings(id:)
-      Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
-    end
-
     field :get_pairing, Types::PairingType, null: false, description: 'Returns a single pairing by id' do
       argument :id, ID, required: true
+    end
+
+    def get_user_pairings(id:)
+      Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
     end
 
     def get_users
@@ -34,7 +34,6 @@ module Types
     end
 
     def get_pairing(id:)
-      # require "pry"; binding.pry
       Pairing.find(id)
     end
 
