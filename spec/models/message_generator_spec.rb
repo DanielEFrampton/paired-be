@@ -12,7 +12,7 @@ describe MessageGenerator do
         message = generator.pairing_notification(name, date, time)
 
         expected_message = "Matt Simon has booked a pairing session with you" +
-                           "from 4:10-4:40pm on Friday, October 22nd on " +
+                           "from 4:10-4:40pm on Friday, October 22nd using " +
                            "Paired! Visit http://paired.tech/schedule to " +
                            "view this booking."
 
