@@ -1,7 +1,8 @@
 class SmsService
   def send_sms(phone_number, message)
     message_data = serialize_message_data(phone_number, message)
-    send_request(message_data)
+    response = send_request(message_data)
+    JSON.parse(response.body)
   end
 
   private
