@@ -1,8 +1,8 @@
 class MessageGenerator
   def pairing_notification(name, date, time)
     "#{name} has booked a pairing session with you from #{times[time]} " +
-    "on #{date_formatter(date)} using Paired! Visit " +
-    "http://paired.tech/schedule to view this booking."
+    "on #{date_formatter(date)} using Paired! " +
+    "View it at #{paired_link}."
   end
 
   private
@@ -18,5 +18,9 @@ class MessageGenerator
   def date_formatter(date)
     ruby_date = Date.parse(date)
     ruby_date.strftime("%A, %B #{ruby_date.day.ordinalize}")
+  end
+
+  def paired_link
+    'https://www.paired.tech'
   end
 end
