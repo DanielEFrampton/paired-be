@@ -8,4 +8,14 @@ class PairedBeSchema < GraphQL::Schema
 
   # Add built-in connections for pagination
   use GraphQL::Pagination::Connections
+
+#   input MutationInput {
+#    name: String
+#    mod: String
+#    program: String
+# }
+#
+# type Mutation {
+#   createUser(input: MutationInput): String
+# }
 end
