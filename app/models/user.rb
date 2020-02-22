@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  validates_presence_of :name, :mod, :program, :pronouns,
-                        :slack, :email, :image, :phone_number
+  validates_presence_of :name, :mod, :program
 
   validates :phone_number, length: {is: 10}
 
