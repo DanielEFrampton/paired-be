@@ -12,6 +12,9 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_user, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
+      argument :firebase_i_d, ID, required: true
+    end
 
     def get_users
       User.all
@@ -21,12 +24,15 @@ module Types
       User.find(id)
     end
 
+    def get_user(firebase_i_d:)
+      User.find(id)
+    end
+
     def get_pairings
       Pairing.all
     end
 
     def get_pairing(id:)
-      # require "pry"; binding.pry
       Pairing.find(id)
     end
 
