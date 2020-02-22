@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  validates_presence_of :name, :mod, :program
+  validates_presence_of :name, :mod, :program, :phone_number, :email,
+                        :slack, :firebase_id
 
   validates :phone_number, length: {is: 10}
 
