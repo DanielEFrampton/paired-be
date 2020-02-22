@@ -1,7 +1,6 @@
 module Mutations
   module Users
     class CreateUser < ::Mutations::BaseMutation
-      argument :user, Types::UserType, required: true
       argument :name, String, required: true
       argument :email, String, required: true
       argument :image, String, required: true
@@ -10,12 +9,18 @@ module Mutations
       argument :pronouns, String, required: true
       argument :slack, String, required: true
       argument :phone_number, String, required: true
+      argument :firebase_i_d, String, required: true
+      argument :skills, [String], required: false
 
       type Types::UserType
 
       def resolve(attributes)
-require "pry"; binding.pry
-        User.create(attributes)
+        skills = attributes.delete(:skills)
+        user = User.create(attributes)
+        skills.each do |skill|
+          user.skills.create(name: skill)
+        end
+        user
       end
     end
   end
