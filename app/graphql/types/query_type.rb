@@ -16,10 +16,10 @@ module Types
       argument :id, ID, required: true
     end
 
-    field :get_user, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
-      argument :firebase_i_d, ID, required: true
+    field :get_user_by_firebase_i_d, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
+      argument :id, ID, required: true
     end
-    
+
     def get_user_pairings(id:)
       Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
     end
@@ -32,8 +32,8 @@ module Types
       User.find(id)
     end
 
-    def get_user(firebase_i_d:)
-      User.find(id)
+    def get_user_by_firebase_i_d(id:)
+      User.where(firebase_id: id).first
     end
 
     def get_pairings
