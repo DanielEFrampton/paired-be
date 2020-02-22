@@ -9,6 +9,7 @@ module Types
     field :email, String, null: false
     field :image, String, null: false
     field :phone_number, String, null: false
+    field :firebase_id, String, null: false
 
     field :skills, [Types::SkillType], null: true
   end
