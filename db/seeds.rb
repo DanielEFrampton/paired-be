@@ -26,7 +26,7 @@ end
   count = User.count - 1
   user_1 = User.offset(rand(0..count)).limit(1).first
   user_2 = User.offset(rand(0..count)).limit(1).first
-
-  user_1.pairees << user_2
-  user_2.pairers << user_1
+  
+  create(:pairing, pairer_id: user_1.id, pairee_id: user_2.id)
+  create(:pairing, pairer_id: user_2.id, pairee_id: user_1.id)
 end
