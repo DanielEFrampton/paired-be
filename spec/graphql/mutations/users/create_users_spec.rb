@@ -20,6 +20,13 @@ RSpec.describe CreateUser, type: :request do
          expect(data['user']['email']).to eq('so@gmail.com')
          expect(data['user']['pronouns']).to eq('she/her')
     end
+
+    it  'returns skills for a user' do
+      post '/graphql', params: { query: query }
+      user = User.last
+      skills = user.skills.map { |skill| skill.name }
+      expect(skills).to eq(["ruby", "rails", "graphql"])
+    end
   end
       def query
         <<~GQL
