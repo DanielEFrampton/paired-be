@@ -10,7 +10,12 @@ module Types
     field :image, String, null: false
     field :phone_number, String, null: false
     field :firebase_id, String, null: false
+    field :skills, [String], null: true
 
-    field :skills, [Types::SkillType], null: true
+    def skills
+      object.skills.map do |skill|
+        skill.name
+      end
+    end
   end
 end
