@@ -8,6 +8,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     image { Faker::LoremFlickr.image }
     phone_number { "4233162121" }
-    firebase_id {'lmfao1233444'}
+    firebase_id {Faker::Alphanumeric.alphanumeric(number: 10, min_alpha: 3)}
   end
 end
