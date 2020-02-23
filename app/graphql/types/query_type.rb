@@ -8,6 +8,10 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_user_by_firebase_i_d, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
+      argument :id, ID, required: true
+    end
+
     field :get_user_pairings, [Types::PairingType], null: false, description: 'Returns a single user pairings by id' do
       argument :id, ID, required: true
     end
@@ -26,6 +30,10 @@ module Types
 
     def get_user(id:)
       User.find(id)
+    end
+
+    def get_user_by_firebase_i_d(id:)
+      User.where(firebase_id: id).first
     end
 
     def get_pairings
