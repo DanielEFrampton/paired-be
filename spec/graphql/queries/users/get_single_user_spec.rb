@@ -17,12 +17,14 @@ RSpec.describe Types::QueryType do
   def query
     <<~GQL
     {
-      getUser(id: "1") {
-        name
-        program
-        mod
-      }
-    }
+  getUser(id: "1") {
+    name
+    program
+    mod
+    id
+    image
+  }
+  }
     GQL
 end
 end

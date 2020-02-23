@@ -12,7 +12,6 @@ RSpec.describe Types::QueryType do
       create(:pairing, id: 3, pairer_id: user_2.id, pairee_id: user_3.id)
 
       result = PairedBeSchema.execute(query).as_json
-
       expect(result["data"]["getUserPairings"].first["pairer"]["name"]).to eq("Bobby")
       expect(result["data"]["getUserPairings"].first["pairee"]["name"]).to eq("Sue")
       expect(result["data"]["getUserPairings"].last["pairee"]["name"]).to eq("Bobby")
@@ -21,17 +20,30 @@ RSpec.describe Types::QueryType do
 
   def query
     <<~GQL
-      {
-      getUserPairings(id: "1") {
-      pairer {
-        name
-      }
-      pairee {
-        name
-      }
-      date
-      time
-      }
+    { getUserPairings(id: "1")
+    {
+     pairer {
+       name
+       mod
+       program
+       id
+       pronouns
+       slack
+       image
+     }
+     pairee {
+       name
+       mod
+       program
+       pronouns
+       slack
+       image
+     }
+     date
+     time
+     id
+     notes
+   }
     }
     GQL
 end

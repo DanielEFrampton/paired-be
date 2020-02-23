@@ -24,10 +24,14 @@ RSpec.describe Types::QueryType do
         program
         id
         pronouns
-        skills
-          { id }
+        skills {
+                id
+        }
         slack
         image
+      }
+      pairee {
+        name
       }
       date
       time
