@@ -24,9 +24,7 @@ RSpec.describe Types::QueryType do
         program
         id
         pronouns
-        skills {
-                id
-        }
+        skills
         slack
         image
       }
@@ -36,8 +34,8 @@ RSpec.describe Types::QueryType do
       date
       time
       id
-    }
-  }
+        }
+      }
     GQL
   end
 end
