@@ -1,6 +1,6 @@
 module Mutations
   module Pairings
-    class CreatePairing < Mutations::BaseMutation
+    class CreatePairing < ::Mutations::BaseMutation
       argument :pairer_id, Integer, required: true
       argument :pairee_id, Integer, required: true
       argument :date, String, required: true
