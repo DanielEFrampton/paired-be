@@ -5,6 +5,7 @@ module Types
     field :pairee, Types::UserType, null: false
     field :date, String, null: true
     field :time, String, null: true
+    field :notes, String, null: true
 
     def pairer
       User.find(object.pairer_id)
