@@ -21,30 +21,30 @@ RSpec.describe Types::QueryType do
   def query
     <<~GQL
     { getUserPairings(id: "1")
-    {
-     pairer {
-       name
-       mod
-       program
+      {
+       pairer {
+         name
+         mod
+         program
+         id
+         pronouns
+         slack
+         image
+       }
+       pairee {
+         name
+         mod
+         program
+         pronouns
+         slack
+         image
+       }
+       date
+       time
        id
-       pronouns
-       slack
-       image
+       notes
      }
-     pairee {
-       name
-       mod
-       program
-       pronouns
-       slack
-       image
-     }
-     date
-     time
-     id
-     notes
-   }
     }
     GQL
-end
+  end
 end
