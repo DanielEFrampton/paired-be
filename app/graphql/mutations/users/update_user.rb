@@ -24,11 +24,13 @@ module Mutations
 
         old_skills = user.skills
 
-        old_skills.each do |old_skill|
-          new_skills.each do |new_skill|
-            old_skill.update(name: new_skill)
-          end
-        end
+        user.update(attributes)
+
+        # old_skills.each do |old_skill|
+        #   new_skills.each do |new_skill|
+        #     old_skill.update(name: new_skill)
+        #   end
+        # end
         user
       end
     end

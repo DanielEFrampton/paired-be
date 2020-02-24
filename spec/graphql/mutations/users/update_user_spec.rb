@@ -23,7 +23,7 @@ RSpec.describe UpdateUser, type: :request do
       expect(data['user']['pronouns']).to eq('she/her')
     end
 
-    it 'returns updated skills for a user' do
+    xit 'returns updated skills for a user' do
       pam = create(:user)
       cheryl = create(:user, id: 10, name: "Lana", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
       skill_1 = cheryl.skills.create(name: "sql")
