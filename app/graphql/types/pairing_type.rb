@@ -3,8 +3,8 @@ module Types
     field :id, ID, null: false
     field :pairer, Types::UserType, null: true
     field :pairee, Types::UserType, null: true
-    field :date, String, null: true
-    field :time, String, null: true
+    field :date, String, null: false
+    field :time, String, null: false
     field :notes, String, null: true
 
     def pairer
