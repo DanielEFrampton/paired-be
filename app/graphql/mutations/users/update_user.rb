@@ -1,13 +1,12 @@
 module Mutations
   module Users
     class UpdateUser < ::Mutations::BaseMutation
-      argument :id, String, required: false
+      argument :id, String, required: true
       # feels weird that this should be returned in the query because id shouldn't change?
       argument :name, String, required: false
       argument :email, String, required: false
       argument :image, String, required: false
       argument :mod, String, required: false
-      # should this be an integer????
       argument :program, String, required: false
       argument :pronouns, String, required: false
       argument :slack, String, required: false
@@ -18,14 +17,19 @@ module Mutations
       type Types::UserType
 
       def resolve(attributes)
-        # skills = attributes.delete(:skills)
+        new_skills = attributes.delete(:skills)
 
-        # require "pry"; binding.pry
-        user = User.update(attributes)
-        # skills.each do |skill|
-        #   user.skills.create(name: skill)
-        # end
-        # user
+        user = User.where(id: attributes[:id]).first
+        user.update(attributes)
+
+        old_skills = user.skills
+
+        old_skills.each do |old_skill|
+          new_skills.each do |new_skill|
+            old_skill.update(name: new_skill)
+          end
+        end
+        user
       end
     end
   end
