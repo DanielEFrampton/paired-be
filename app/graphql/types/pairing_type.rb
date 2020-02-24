@@ -8,12 +8,12 @@ module Types
     field :notes, String, null: true
 
     def pairer
-      return if object.empty?
+      return if object.class == Array
       User.find(object.pairer_id)
     end
 
     def pairee
-      return if object.empty?
+      return if object.class == Array
       User.find(object.pairee_id)
     end
   end
