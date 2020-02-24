@@ -33,32 +33,31 @@ RSpec.describe CreateUser, type: :request do
         mutation {
           user: createUser(
           input: {
-        name: "Samantha"
-        email: "so@gmail.com"
-        image: "https://robohash.org/image"
-        firebaseID: "425tgw2g4w43"
-        mod: "3"
-        program: "BE"
-        phoneNumber: "4231563232"
-        pronouns: "she/her"
-        slack: "rer7891"
-        skills: ["ruby", "rails", "graphql"]
-      }
-    ) {
-      name
-      program
-      mod
-      id
-      image
-      pronouns
-      email
-      slack
-      skills
-        { id }
-    }
-  }
-  GQL
-end
+            name: "Samantha"
+            email: "so@gmail.com"
+            image: "https://robohash.org/image"
+            firebaseID: "425tgw2g4w43"
+            mod: "3"
+            program: "BE"
+            phoneNumber: "4231563232"
+            pronouns: "she/her"
+            slack: "rer7891"
+            skills: ["ruby", "rails", "graphql"]
+          }
+          ) {
+            name
+            program
+            mod
+            id
+            image
+            pronouns
+            email
+            slack
+            skills
+            }
+          }
+        GQL
+      end
+    end
   end
-end
 end

@@ -1,10 +1,14 @@
 module Types
   class QueryType < Types::BaseObject
     field :get_users, [Types::UserType], null: false, description: 'Returns a list of users'
-    field :skills, [Types::SkillType], null: false, description: 'Returns a list of skills'
+
     field :get_pairings, [Types::PairingType], null: false, description: 'Returns all pairings'
 
     field :get_user, Types::UserType, null: false, description: 'Returns a single user by id' do
+      argument :id, ID, required: true
+    end
+
+    field :get_user_by_firebase_i_d, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
       argument :id, ID, required: true
     end
 
@@ -26,6 +30,10 @@ module Types
 
     def get_user(id:)
       User.find(id)
+    end
+
+    def get_user_by_firebase_i_d(id:)
+      User.where(firebase_id: id).first
     end
 
     def get_pairings
