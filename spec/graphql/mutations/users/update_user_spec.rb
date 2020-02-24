@@ -34,11 +34,12 @@ RSpec.describe UpdateUser, type: :request do
 
       post '/graphql', params: { query: query }
 
-      cheryl = User.first
+      result = JSON.parse(response.body)
+      skills = result["data"]["user"]["skills"]
 
-      expect(cheryl.skills[0].name).to eq('ruby')
-      expect(cheryl.skills[1].name).to eq('react')
-      expect(cheryl.skills[2].name).to eq('css')
+      expect(skills[0]).to eq('ruby')
+      expect(skills[1]).to eq('react')
+      expect(skills[2]).to eq('css')
     end
 
     it 'it returns updated skill in correct position' do
@@ -51,16 +52,13 @@ RSpec.describe UpdateUser, type: :request do
       expect(bob.skills).to eq([skill_1, skill_2, skill_3])
 
       post '/graphql', params: { query: query_2 }
-      bob = User.first
-      skills = bob.skills
-      skill_1 = skills[0].name
-      skill_2 = skills[1].name
-      skill_3= skills[2].name
-      # require "pry"; binding.pry
+      
+      result = JSON.parse(response.body)
+      skills = result["data"]["user"]["skills"]
 
-      expect(skill_1).to eq('sql')
-      expect(skill_2).to eq('react')
-      expect(skill_3).to eq('graphql')
+      expect(skills[0]).to eq('sql')
+      expect(skills[1]).to eq('react')
+      expect(skills[2]).to eq('graphql')
     end
 
     def query
