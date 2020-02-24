@@ -20,8 +20,12 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_user_by_firebase_i_d, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
+      argument :id, ID, required: true
+    end
+
     def get_user_pairings(id:)
-      Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
+      Pairing.where('pairer_id = ? AND pairee_id IS NOT NULL OR pairee_id = ?', id, id)
     end
 
     def get_users
@@ -42,10 +46,6 @@ module Types
 
     def get_pairing(id:)
       Pairing.find(id)
-    end
-
-    def skills
-      Skill.all
     end
   end
 end
