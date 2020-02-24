@@ -25,7 +25,7 @@ RSpec.describe DeleteUser, type: :request do
     end
 
     it 'deletes all skills and open pairings associated with user' do
-      user = create(:user, id: 1)
+      user = create(:user, id: 121)
       user_2 = create(:user)
       user.skills.create(name: "Ruby")
       user.skills.create(name: "Rails")
