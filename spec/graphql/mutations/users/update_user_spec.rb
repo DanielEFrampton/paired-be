@@ -23,19 +23,39 @@ RSpec.describe UpdateUser, type: :request do
       expect(data['user']['pronouns']).to eq('she/her')
     end
 
-    xit 'returns updated skills for a user' do
-      pam = create(:user)
+    it 'returns updated skills for a user' do
       cheryl = create(:user, id: 10, name: "Lana", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
+      pam = create(:user)
       skill_1 = cheryl.skills.create(name: "sql")
       skill_2 = cheryl.skills.create(name: "javascript")
+      skill_3 = cheryl.skills.create(name: "graphql")
 
-      expect(cheryl.skills).to eq([skill_1, skill_2])
+      expect(cheryl.skills).to eq([skill_1, skill_2, skill_3])
 
       post '/graphql', params: { query: query }
 
+      cheryl = User.first
 
+      expect(cheryl.skills[0].name).to eq('ruby')
+      expect(cheryl.skills[1].name).to eq('react')
+      expect(cheryl.skills[2].name).to eq('css')
+    end
 
-      # still working on the expectation here
+    it 'it returns updated skill in correct position' do
+      bob = create(:user, id: 11, name: "Bob", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
+      pam = create(:user)
+      skill_1 = bob.skills.create(name: "sql")
+      skill_2 = bob.skills.create(name: "javascript")
+      skill_3 = bob.skills.create(name: "graphql")
+
+      expect(bob.skills).to eq([skill_1, skill_2, skill_3])
+
+      post '/graphql', params: { query: query_2 }
+      bob = User.first
+
+      expect(bob.skills[0].name).to eq('sql')
+      expect(bob.skills[1].name).to eq('react')
+      expect(bob.skills[2].name).to eq('graphql')
     end
 
     def query
@@ -50,7 +70,36 @@ RSpec.describe UpdateUser, type: :request do
             program: "BE"
             pronouns: "she/her"
             slack: "capleugh"
-            skills: ["ruby", "react"]
+            skills: ["ruby", "react", "css"]
+          }
+          ) {
+            name
+            program
+            mod
+            id
+            image
+            pronouns
+            email
+            slack
+            skills
+          }
+        }
+      GQL
+    end
+
+    def query_2
+      <<~GQL
+      mutation {
+        user: updateUser(
+          input: {
+            id: "11"
+            name: "Carl Crockett"
+            email: "cap@gmail.com"
+            mod: "2"
+            program: "BE"
+            pronouns: "she/her"
+            slack: "capleugh"
+            skills: ["", "react", ""]
           }
           ) {
             name
