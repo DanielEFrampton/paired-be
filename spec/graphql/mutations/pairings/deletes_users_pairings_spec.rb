@@ -5,9 +5,9 @@ RSpec.describe DeleteUserPairings, type: :request do
   describe '.resolve' do
         it 'deletes a user pairings' do
           create_list(:user, 3)
-          create(:user, id: 1)
+          create(:user, id: 122)
           users = User.all
-          create(:pairing, pairer_id: 1,  pairee_id: users[3].id )
+          create(:pairing, pairer_id: 122,  pairee_id: users[3].id )
           create(:pairing, pairer_id: users[1].id, pairee_id: users[2].id )
           expect(Pairing.count).to eq(2)
           post '/graphql', params: {query: query}
@@ -27,7 +27,7 @@ RSpec.describe DeleteUserPairings, type: :request do
       mutation {
      deletePairings(
         	input:{
-            id: "1" } ) {
+            id: "122" } ) {
         pairer { id }
       }
     }
