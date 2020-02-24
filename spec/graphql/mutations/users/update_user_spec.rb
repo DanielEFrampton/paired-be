@@ -53,11 +53,14 @@ RSpec.describe UpdateUser, type: :request do
       post '/graphql', params: { query: query_2 }
       bob = User.first
       skills = bob.skills
+      skill_1 = skills[0].name
+      skill_2 = skills[1].name
+      skill_3= skills[2].name
       # require "pry"; binding.pry
 
-      expect(skills[0].name).to eq('sql')
-      expect(skills[1].name).to eq('react')
-      expect(skills[2].name).to eq('graphql')
+      expect(skill_1).to eq('sql')
+      expect(skill_2).to eq('react')
+      expect(skill_3).to eq('graphql')
     end
 
     def query
