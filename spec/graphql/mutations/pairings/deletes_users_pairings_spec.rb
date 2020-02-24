@@ -23,7 +23,6 @@ RSpec.describe DeleteUserPairings, type: :request do
     end
   end
     def query
-    users = User.all
       <<~GQL
       mutation {
      deletePairings(
