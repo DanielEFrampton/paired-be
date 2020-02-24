@@ -47,9 +47,5 @@ module Types
     def get_pairing(id:)
       Pairing.find(id)
     end
-
-    def skills
-      Skill.all
-    end
   end
 end
