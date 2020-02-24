@@ -5,7 +5,7 @@ RSpec.describe DeleteUser, type: :request do
   describe '.resolve' do
     it 'deletes a user' do
       create_list(:user, 3)
-      create(:user, id: 1)
+      create(:user, id: 121)
       users = User.all
       expect(User.count).to eq(4)
       post '/graphql', params: {query: query}
@@ -13,7 +13,7 @@ RSpec.describe DeleteUser, type: :request do
     end
 
     it 'returns id of deleted User after user deletion' do
-      user = create(:user, id: 1)
+      user = create(:user, id: 121)
       expect(User.count).to eq(1)
 
       post '/graphql', params: { query: query }
@@ -47,7 +47,7 @@ RSpec.describe DeleteUser, type: :request do
       mutation {
         deleteUser(
         	input:{
-            id: "1" } ) {
+            id: "121" } ) {
           name
         }
       }
