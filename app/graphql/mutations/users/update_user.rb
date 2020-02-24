@@ -1,8 +1,7 @@
 module Mutations
   module Users
     class UpdateUser < ::Mutations::BaseMutation
-      argument :id, String, required: true
-      # feels weird that this should be returned in the query because id shouldn't change?
+      argument :id, ID, required: true
       argument :name, String, required: false
       argument :email, String, required: false
       argument :image, String, required: false
@@ -24,13 +23,11 @@ module Mutations
 
         old_skills = user.skills
 
-        user.update(attributes)
-
-        # old_skills.each do |old_skill|
-        #   new_skills.each do |new_skill|
-        #     old_skill.update(name: new_skill)
-        #   end
-        # end
+        new_skills.each.with_index do |new_skill, new_i|
+          old_skills.each.with_index do |old_skill, old_i|
+            old_skill.update(name: new_skill) if new_i == old_i && !new_skill.empty?
+          end
+        end
         user
       end
     end
