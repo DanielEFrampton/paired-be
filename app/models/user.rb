@@ -13,4 +13,21 @@ class User < ApplicationRecord
 
   has_many :pairing_users, foreign_key: :pairee_id, class_name: 'Pairing'
   has_many :pairers, through: :pairing_users
+
+  def total_mentor_bookings
+    Pairing.where('pairer_id = ? AND pairee_id IS NOT NULL', self.id).count
+  end
+
+  def user_total_mentor_hours
+    (total_mentor_bookings * 30.0) / 60.0
+  end
+
+  def user_total_hours_mentored
+    pairee_count = Pairing.where('pairee_id = ?', self.id).count
+    (pairee_count * 30.0) / 60.0
+  end
+
+  def unique_mentees
+    pairees.uniq
+  end
 end
