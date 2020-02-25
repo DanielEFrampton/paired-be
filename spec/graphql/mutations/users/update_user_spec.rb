@@ -18,7 +18,7 @@ RSpec.describe UpdateUser, type: :request do
 
       expect(data['user']['name']).to eq('Carl Crockett')
       expect(data['user']['program']).to eq('BE')
-      expect(data['user']['mod']).to eq('2')
+      expect(data['user']['module']).to eq('2')
       expect(data['user']['email']).to eq('cap@gmail.com')
       expect(data['user']['pronouns']).to eq('she/her')
     end
@@ -52,7 +52,7 @@ RSpec.describe UpdateUser, type: :request do
       expect(bob.skills).to eq([skill_1, skill_2, skill_3])
 
       post '/graphql', params: { query: query_2 }
-      
+
       result = JSON.parse(response.body)
       skills = result["data"]["user"]["skills"]
 
@@ -69,7 +69,7 @@ RSpec.describe UpdateUser, type: :request do
             id: "10"
             name: "Carl Crockett"
             email: "cap@gmail.com"
-            mod: "2"
+            module: "2"
             program: "BE"
             pronouns: "she/her"
             slack: "capleugh"
@@ -78,7 +78,7 @@ RSpec.describe UpdateUser, type: :request do
           ) {
             name
             program
-            mod
+            module
             id
             image
             pronouns
@@ -98,7 +98,7 @@ RSpec.describe UpdateUser, type: :request do
             id: "11"
             name: "Carl Crockett"
             email: "cap@gmail.com"
-            mod: "2"
+            module: "2"
             program: "BE"
             pronouns: "she/her"
             slack: "capleugh"
@@ -107,7 +107,7 @@ RSpec.describe UpdateUser, type: :request do
           ) {
             name
             program
-            mod
+            module
             id
             image
             pronouns

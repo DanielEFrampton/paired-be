@@ -20,7 +20,7 @@ RSpec.describe Types::QueryType do
     getPairing(id: "1") {
       pairer {
         name
-        mod
+        module
         program
         id
         pronouns

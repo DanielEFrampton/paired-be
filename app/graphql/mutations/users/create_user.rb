@@ -4,7 +4,9 @@ module Mutations
       argument :name, String, required: true
       argument :email, String, required: true
       argument :image, String, required: true
-      argument :mod, String, required: true
+      argument :module, String,
+               required: true,
+               as: :mod
       argument :program, String, required: true
       argument :pronouns, String, required: true
       argument :slack, String, required: true
