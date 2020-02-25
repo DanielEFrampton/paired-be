@@ -26,5 +26,5 @@ RSpec.describe Types::QueryType do
       }
     }
     GQL
-end
+  end
 end
