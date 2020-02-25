@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def user_total_mentor_hours(object)
-    (total_bookings(object) * 30.0) / 60.0
+    (total_mentor_bookings(object) * 30.0) / 60.0
   end
 
   def user_total_hours_mentored(object)
