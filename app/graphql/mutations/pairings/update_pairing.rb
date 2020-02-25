@@ -10,8 +10,8 @@ module Mutations
       def resolve(attributes)
         pairing = Pairing.where(id: attributes[:id]).first
         pairing.update(pairee_id: attributes[:pairee], notes: attributes[:notes])
+        notifications(pairing)
         pairing
-        sms_service(pairing)
       end
 
     private
@@ -25,12 +25,14 @@ module Mutations
         message.pairing_notification(name, date, time)
       end
 
-      def sms_service(pairing)
-        message = create_message(pairing)
+      def notifications(pairing)
         pairer = User.where(id: pairing.pairer_id).first
-        phone_number = pairer.phone_number
-        sms = SmsService.new
-        sms.send_sms(phone_number, message)
+        if pairer.phone_number != nil
+          message = create_message(pairing)
+          phone_number = pairer.phone_number
+          sms = SmsService.new
+          sms.send_sms(phone_number, message)
+        end
       end
     end
   end
