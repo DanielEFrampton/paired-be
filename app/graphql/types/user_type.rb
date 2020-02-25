@@ -25,19 +25,19 @@ module Types
     end
 
     def total_bookings
-      total_mentor_bookings(object)
+      object.total_mentor_bookings
     end
 
     def total_mentor_hours
-      user_total_mentor_hours(object)
+      object.user_total_mentor_hours
     end
 
     def total_hours_mentored
-      user_total_hours_mentored(object)
+      object.user_total_hours_mentored
     end
 
     def mentees
-      unique_mentees(object)
+      object.unique_mentees
     end
   end
 end
