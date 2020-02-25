@@ -19,7 +19,6 @@ module Mutations
           post '/graphql', params: { query: query }
           json = JSON.parse(response.body)
           data = json['data']
-
           expect(data['updatePairing']['pairee']['name']).to eq('Sally')
           expect(data['updatePairing']['notes']).to eq('What is even happening?')
         end
@@ -35,7 +34,7 @@ module Mutations
                   }) {
             pairer {
               name
-              mod
+              module
               program
               id
               pronouns
@@ -44,7 +43,7 @@ module Mutations
             }
             pairee {
               name
-              mod
+              module
               program
               id
               pronouns
