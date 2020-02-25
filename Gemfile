@@ -29,6 +29,7 @@ gem 'faraday'
 gem 'figaro'
 gem 'graphql'
 gem 'search_object_graphql'
+gem 'skylight'
 gem 'sprockets', '~> 3'
 gem 'travis'
 
