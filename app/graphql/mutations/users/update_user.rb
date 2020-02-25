@@ -5,7 +5,7 @@ module Mutations
       argument :name, String, required: false
       argument :email, String, required: false
       argument :image, String, required: false
-      argument :mod, String, required: false
+      argument :module, String, required: false, as: :mod
       argument :program, String, required: false
       argument :pronouns, String, required: false
       argument :slack, String, required: false
