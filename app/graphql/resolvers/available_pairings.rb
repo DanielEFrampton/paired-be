@@ -13,7 +13,7 @@ require 'search_object/plugin/graphql'
     class PairingFilter < ::Types::BaseInputObject
       argument :OR, [self], required: false
       argument :program, String, required: false
-      argument :mod, String, required: false
+      argument :module, String, required: false
       argument :date, String, required: false
     end
 
@@ -33,7 +33,7 @@ require 'search_object/plugin/graphql'
 
       users = User.all
       users = users.where('program LIKE ?', "%#{value[:program]}%") if value[:program]
-      users = users.where('mod LIKE ?', "%#{value[:mod]}%") if value[:mod]
+      users = users.where('mod LIKE ?', "%#{value[:module]}%") if value[:module]
       user_ids = users.map { |user| user.id}
 
       scope = scope.where(pairer_id: [user_ids])
