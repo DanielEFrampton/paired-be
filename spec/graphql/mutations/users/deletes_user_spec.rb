@@ -29,8 +29,8 @@ RSpec.describe DeleteUser, type: :request do
       user_2 = create(:user)
       user.skills.create(name: "Ruby")
       user.skills.create(name: "Rails")
-      pairing_1 = create(:pairing, pairer_id: user.id)
-      pairing_2 = create(:pairing, pairer_id: user_2.id)
+      pairing_1 = create(:pairing, pairer_id: user.id, pairee_id: nil)
+      pairing_2 = create(:pairing, pairer_id: user_2.id, pairee_id: nil)
 
       expect(Skill.count).to eq(2)
       expect(Pairing.count).to eq(2)

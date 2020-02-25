@@ -15,9 +15,9 @@ RSpec.describe Types::QueryType do
         user_1 = create(:user, id: 43, mod: "2", program: "FE")
         user_2 = create(:user, id: 41, mod: "1", program: "FE")
 
-         create(:pairing, pairer_id: user.id, date: "Wed Apr 04 2020" )
-         create(:pairing, pairer_id: user_1.id, date: "Wed Apr 04 2020" )
-         create(:pairing, pairer_id: user_2.id, date: "Wed Apr 04 2020" )
+         create(:pairing, pairer_id: user.id, date: "Wed Apr 04 2020", pairee_id: nil )
+         create(:pairing, pairer_id: user_1.id, date: "Wed Apr 04 2020", pairee_id: nil )
+         create(:pairing, pairer_id: user_2.id, date: "Wed Apr 04 2020", pairee_id: nil )
 
 
       result = PairedBeSchema.execute(query).as_json
@@ -28,10 +28,10 @@ RSpec.describe Types::QueryType do
   def query
     <<~GQL
     {
-        getAvailablePairings(filter: { program: "FE", mod: "2", date: "Wed Apr 04 2020" }) {
+        getAvailablePairings(filter: { program: "FE", module: "2", date: "Wed Apr 04 2020" }) {
           pairer {
             name
-            mod
+            module
             program
             id
             pronouns
