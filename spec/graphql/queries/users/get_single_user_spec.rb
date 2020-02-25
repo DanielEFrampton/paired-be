@@ -9,7 +9,7 @@ RSpec.describe Types::QueryType do
       result = PairedBeSchema.execute(query).as_json
 
       expect(result["data"]["getUser"]["name"]).to eq("Cate Blanchett")
-      expect(result["data"]["getUser"]["mod"]).to eq("3")
+      expect(result["data"]["getUser"]["module"]).to eq("3")
       expect(result["data"]["getUser"]["program"]).to eq("BE")
     end
   end
@@ -20,7 +20,7 @@ RSpec.describe Types::QueryType do
       getUser(id: "1") {
         name
         program
-        mod
+        module
         id
         image
       }

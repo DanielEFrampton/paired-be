@@ -24,7 +24,7 @@ RSpec.describe Types::QueryType do
       {
        pairer {
          name
-         mod
+         module
          program
          id
          pronouns
@@ -33,7 +33,7 @@ RSpec.describe Types::QueryType do
        }
        pairee {
          name
-         mod
+         module
          program
          pronouns
          slack

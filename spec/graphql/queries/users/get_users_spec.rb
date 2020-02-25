@@ -12,7 +12,7 @@ RSpec.describe Types::QueryType do
 
       users = User.all
       expect(result.dig("data", "getUsers")).to match_array(
-      users.map { |user| {"mod" => user.mod, "name" => user.name, "program" => user.program} })
+      users.map { |user| {"module" => user.mod, "name" => user.name, "program" => user.program} })
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.describe Types::QueryType do
       getUsers {
         name
         program
-        mod
+        module
         }
     }
     GQL

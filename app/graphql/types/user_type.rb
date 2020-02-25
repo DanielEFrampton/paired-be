@@ -2,7 +2,10 @@ module Types
   class UserType < Types::BaseObject
     field :id, ID, null: false
     field :name, String, null: false
-    field :mod, String, null: false
+    field :module, String,
+          null: false,
+          method: :mod,
+          method_conflict_warning: false
     field :program, String, null: false
     field :pronouns, String, null: false
     field :slack, String, null: false
