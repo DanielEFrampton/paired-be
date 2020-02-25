@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     name {Faker::FunnyName.name}
-    mod { "3" }
+    mod { Faker::Number.within(range: 1..4).to_s }
     program { "BE" }
     pronouns { "She/her" }
     slack  {Faker::FunnyName.name}
