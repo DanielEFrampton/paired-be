@@ -24,21 +24,20 @@ module Types
       end
     end
 
-    def total_bookings
-      Pairing.where('pairer_id = ? AND pairee_id IS NOT NULL', object.id).count
+    def total_bookings(object)
+      total_mentor_bookings(object)
     end
 
-    def total_mentor_hours
-      (total_bookings * 30.0) / 60.0
+    def total_mentor_hours(object)
+      user_total_hours_mentored(object)
     end
 
-    def total_hours_mentored
-      pairee_count = Pairing.where('pairee_id = ?', object.id).count
-      (pairee_count * 30.0) / 60.0
+    def total_hours_mentored(object)
+      user_total_hours_mentored(object)
     end
 
-    def mentees
-      object.pairees.uniq
+    def mentees(object)
+      unique_mentees(object)
     end
   end
 end
