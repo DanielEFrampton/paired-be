@@ -11,11 +11,16 @@ module Types
     field :phone_number, String, null: false
     field :firebase_id, String, null: false
     field :skills, [String], null: true
+    field :unbooked_pairings, [Types::PairingType], null: true
 
     def skills
       object.skills.map do |skill|
         skill.name
       end
+    end
+
+    def unbooked_pairings
+      object.paired_users.where(pairee: nil)
     end
   end
 end
