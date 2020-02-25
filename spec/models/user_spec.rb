@@ -12,7 +12,6 @@ RSpec.describe User, type: :model do
       it { should validate_length_of(:phone_number).is_equal_to(10) }
       it { should validate_numericality_of(:mod).is_greater_than_or_equal_to(1) }
       it { should validate_numericality_of(:mod).is_less_than_or_equal_to(5) }
-
     end
 
     describe 'relationships' do
