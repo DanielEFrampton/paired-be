@@ -34,6 +34,7 @@ RSpec.describe Types::QueryType do
           image
           pronouns
           email
+          phone_number
           slack
           skills
         }
