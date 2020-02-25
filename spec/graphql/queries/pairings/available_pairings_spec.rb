@@ -15,15 +15,9 @@ RSpec.describe Types::QueryType do
         user_1 = create(:user, id: 43, mod: "2", program: "FE")
         user_2 = create(:user, id: 41, mod: "1", program: "FE")
 
-<<<<<<< HEAD
          create(:pairing, pairer_id: user.id, pairee_id: nil, date: "Wed Apr 04 2020" )
          create(:pairing, pairer_id: user_1.id, pairee_id: nil, date: "Wed Apr 04 2020" )
          create(:pairing, pairer_id: user_2.id, pairee_id: nil, date: "Wed Apr 04 2020" )
-=======
-         create(:pairing, pairer_id: user.id, date: "Wed Apr 04 2020", pairee_id: nil )
-         create(:pairing, pairer_id: user_1.id, date: "Wed Apr 04 2020", pairee_id: nil )
-         create(:pairing, pairer_id: user_2.id, date: "Wed Apr 04 2020", pairee_id: nil )
->>>>>>> ec3b834c1f5ff3aaeeb9474841c776131baf58f6
 
 
       result = PairedBeSchema.execute(query).as_json
