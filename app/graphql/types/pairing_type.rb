@@ -13,7 +13,7 @@ module Types
     end
 
     def pairee
-      return if object.class == Array
+      return if object.class == Array || object.pairee_id.nil?
       User.find(object.pairee_id)
     end
   end

@@ -31,7 +31,7 @@ module Types
     def unbooked_pairings
       object.paired_users.where(pairee: nil)
     end
-    
+
     def total_bookings
       object.total_mentor_bookings
     end

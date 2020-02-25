@@ -10,7 +10,6 @@ RSpec.describe Types::QueryType do
       user.skills.create(name: "sql")
 
       result = PairedBeSchema.execute(query).as_json
-
       expect(result["data"]["getUserByFirebaseID"]["name"]).to eq("Ralph")
       expect(result["data"]["getUserByFirebaseID"]["program"]).to eq("BE")
       expect(result["data"]["getUserByFirebaseID"]["module"]).to eq("3")
@@ -19,6 +18,7 @@ RSpec.describe Types::QueryType do
       expect(result["data"]["getUserByFirebaseID"]["pronouns"]).to eq("he/him")
       expect(result["data"]["getUserByFirebaseID"]["email"]).to eq("corndog@gmail.com")
       expect(result["data"]["getUserByFirebaseID"]["slack"]).to eq("Corn Dog")
+      expect(result["data"]["getUserByFirebaseID"]["phoneNumber"]).to eq("5555550100")
       expect(result["data"]["getUserByFirebaseID"]["skills"]).to eq(["ruby", "sql"])
     end
   end
@@ -34,6 +34,7 @@ RSpec.describe Types::QueryType do
           image
           pronouns
           email
+          phoneNumber
           slack
           skills
         }
