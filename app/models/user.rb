@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
 
   validates :phone_number, length: {is: 10}
+  validates_numericality_of :mod, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5
 
   has_many :skills, dependent: :destroy
   has_many :interests, dependent: :destroy
