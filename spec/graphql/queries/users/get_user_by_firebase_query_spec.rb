@@ -13,7 +13,7 @@ RSpec.describe Types::QueryType do
 
       expect(result["data"]["getUserByFirebaseID"]["name"]).to eq("Ralph")
       expect(result["data"]["getUserByFirebaseID"]["program"]).to eq("BE")
-      expect(result["data"]["getUserByFirebaseID"]["mod"]).to eq("3")
+      expect(result["data"]["getUserByFirebaseID"]["module"]).to eq("3")
       expect(result["data"]["getUserByFirebaseID"]["id"]).to eq("75")
       expect(result["data"]["getUserByFirebaseID"]["image"]).to eq("https://i.ytimg.com/vi/ndsaoMFz9J4/maxresdefault.jpg")
       expect(result["data"]["getUserByFirebaseID"]["pronouns"]).to eq("he/him")
@@ -29,7 +29,7 @@ RSpec.describe Types::QueryType do
       	getUserByFirebaseID(id: "er561v3h0si34bu56m1l2e34v7ax") {
           name
           program
-          mod
+          module
           id
           image
           pronouns

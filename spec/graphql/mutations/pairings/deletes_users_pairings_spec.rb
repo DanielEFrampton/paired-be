@@ -25,12 +25,14 @@ RSpec.describe DeleteUserPairings, type: :request do
     def query
       <<~GQL
       mutation {
-     deletePairings(
-        	input:{
-            id: "122" } ) {
-        pairer { id }
+        deletePairings(
+          input:{
+            id: "122"
+          }
+        ) {
+          pairer { id }
+        }
       }
-    }
       GQL
     end
 
