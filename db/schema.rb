@@ -9,13 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_02_26_064758) do
-=======
 ActiveRecord::Schema.define(version: 2020_02_26_175936) do
->>>>>>> a999ace493fb0557e7ceebb5c3606d9d83974094
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
