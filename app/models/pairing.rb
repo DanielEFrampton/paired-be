@@ -16,5 +16,13 @@ class Pairing < ApplicationRecord
 
   def pairee_name
     pairee.name
-  end         
+  end
+
+  def pairer_phone_number
+    pairer.phone_number
+  end
+
+  def pairee_phone_number
+    pairee.phone_number
+  end             
 end
