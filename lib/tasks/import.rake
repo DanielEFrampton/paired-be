@@ -50,5 +50,7 @@ task :import => [:environment] do
                     notes: pairing_data["notes"]
                    )
   end
-  ActiveRecord::Migration.remove_column :users, :oid, :string
+
+  #Assocaited migration to remove oid from users table 
+  #ActiveRecord::Migration.remove_column :users, :oid, :string
 end
