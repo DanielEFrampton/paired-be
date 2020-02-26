@@ -29,9 +29,9 @@ module Mutations
         pairee = pairing.pairee
         if pairer.phone_number
           phone_number = pairer.phone_number
-          SmsWorker.perform_async(phone_number, message)
+          SmsWorker.perform_later(phone_number, message)
         else
-          EmailWorker.perform_async(pairing)
+          EmailWorker.perform_later(pairing)
         end
       end
     end
