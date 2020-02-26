@@ -1,7 +1,8 @@
 class EmailWorker < ActiveJob::Base
   sidekiq_options retry: false
+  queue_as :default
 
   def perform(pairing)
-    AppointmentNotif.new.initial_message(pairing).deliver_now
+    AppointmentNotif.initial_message(pairing).deliver_now
   end
 end
