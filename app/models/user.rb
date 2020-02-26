@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   validates_presence_of :name, :mod, :program, :pronouns,
-                        :slack, :email, :image, :phone_number, :firebase_id
+                        :slack, :email, :image, :firebase_id
 
-
-  validates :phone_number, length: {is: 10}
   validates_numericality_of :mod, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5
 
   has_many :skills, dependent: :destroy
