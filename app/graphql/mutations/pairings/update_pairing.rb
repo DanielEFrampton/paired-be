@@ -25,10 +25,8 @@ module Mutations
 
       def notifications(pairing)
         message = create_message(pairing)
-        pairer = pairing.pairer
-        pairee = pairing.pairee
-        if pairer.phone_number
-          phone_number = pairer.phone_number
+        if pairing.pairer_phone_number
+          phone_number = pairing.pairer_phone_number
           SmsWorker.perform_later(phone_number, message)
         else
           EmailWorker.perform_later(pairing)
