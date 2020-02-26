@@ -1,5 +1,4 @@
-class EmailWorker
-  include Sidekiq::Worker
+class EmailWorker < ActiveJob::Base
   sidekiq_options retry: false
 
   def perform(pairing)

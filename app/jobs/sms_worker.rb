@@ -1,5 +1,4 @@
-class SmsWorker
-  include Sidekiq::Worker
+class SmsWorker < ActiveJob::Base
   sidekiq_options retry: false
 
   def perform(phone_number, message)
