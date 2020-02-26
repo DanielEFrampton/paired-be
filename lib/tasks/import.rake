@@ -4,7 +4,10 @@ task :import => [:environment] do
   Skill.destroy_all
   Pairing.destroy_all
   User.destroy_all
-  ActiveRecord::Migration.add_column :users, :oid, :string
+
+  #if you need to add oid to the user table use the following line
+  #ActiveRecord::Migration.add_column :users, :oid, :string
+
   File.open(ARGV[1]).each do |line|
     user_data = JSON.parse(line)
        User.create(oid: user_data["_id"]["$oid"],
