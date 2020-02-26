@@ -8,7 +8,7 @@ module Mutations
       type Types::PairingType
 
       def resolve(attributes)
-        pairing = Pairing.where(id: attributes[:id]).first
+        pairing = Pairing.find(attributes[:id])
         pairing.update(pairee_id: attributes[:pairee], notes: attributes[:notes])
         notifications(pairing)
         pairing
@@ -17,21 +17,21 @@ module Mutations
     private
 
       def create_message(pairing)
-        pairee = User.where(id: pairing.pairee_id).first
-        name = pairee.name
+        name = pairing.pairee_name
         date = pairing.date
         time = pairing.time
-        message = MessageGenerator.new
-        message.pairing_notification(name, date, time)
+        MessageGenerator.new.pairing_notification(name, date, time)
       end
 
       def notifications(pairing)
-        pairer = User.where(id: pairing.pairer_id).first
-        if pairer.phone_number != nil
-          message = create_message(pairing)
+        message = create_message(pairing)
+        pairer = pairing.pairer
+        pairee = pairing.pairee
+        if pairer.phone_number
           phone_number = pairer.phone_number
-          sms = SmsService.new
-          sms.send_sms(phone_number, message)
+          SmsWorker.perform_async(phone_number, message)
+        else
+          EmailWorker.perform_async(pairing)
         end
       end
     end
