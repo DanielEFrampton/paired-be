@@ -14,12 +14,12 @@ module Mutations
         end
 
         it 'can update a pairing and sends a message to MessageGenerator' do
+
           post '/graphql', params: { query: query }
           json = JSON.parse(response.body)
           data = json['data']
           expect(data['updatePairing']['pairee']['name']).to eq('Sally')
           expect(data['updatePairing']['notes']).to eq('What is even happening?')
-          expect(@pairing.pairee).to eq(@user_2)
         end
       end
 
