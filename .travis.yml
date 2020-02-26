@@ -15,6 +15,7 @@ stages:
     if: type = push AND branch = master
 jobs:
   include:
+    - stage: test
     - stage: deploy
       deploy:
         provider: heroku
