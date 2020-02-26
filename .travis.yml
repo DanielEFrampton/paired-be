@@ -9,6 +9,10 @@ before_install:
 before_script:
 - psql -c 'create database paired_be_test;' -U postgres
 # following adapted from https://blog.travis-ci.com/2019-05-30-setting-up-a-ci-cd-process-on-github
+stages:
+  - test
+  - name: deploy
+    if: type = push AND branch = master
 jobs:
   include:
     - stage: deploy
@@ -16,7 +20,3 @@ jobs:
         provider: heroku
         api_key:
           secure: estLSfkT0B1opvyqUdyFia/cRaq/uqll5JKUNUwC7UyweGMlpogUZmYia4xV36KwllM8jKrF1YwhdrE4AV6XdcB2VEJSk4rRhaQKkZG/uNdyq4XxsZPACHYCd/DeFhRcO37m7GM/TKgwP1BfV7DEhalhYCBpyHHcORjht1ayqWbKFLuJL3kSrYHDqETapYztowokwwiF2l+iGNPj4q5jPlM3guOSAFCD1vQTGopAHPKWUkgrUJ4lTmal0Ur6hcronD2VkwB41vcFVhfM1pw0fhbfmKwXT1loqI16czMf9w7GQoC4V+jybk0YV7mkgNiAJl7HwtrR9wlTziX419KFkKXBr1zEf6ZaCivincS1A4zZwhz+/SzNDGYOeWPAjNE1wRbrS1Cg9gxdPZbbzn8vAc26EcYoAHpf/S0uXHdxrWq9TAlrGy2tXLLVZeQ7iU8aSYwh9fgwV1yVAGobbRVZMedOB5CjgFvdC/R5x3GaK1vb1ocIPyrF6V+b00RtPtSzgNRI3H/lA0fSAQns2bWe+dWszF41FQFpre4+gofNP4X8JLUH1wA27XridpyhvLpyfrSwHxuSQ/ImWy2B+9+FlPkxmWKzsTDON8vVSlZymUUp3omXbm5fHNr8uAmLTDXOgrD1GXE83F61OpnSz92dZsgXJsS0OLU+9weJq5krG38=
-stages:
-  - name: test
-  - name: deploy
-    if: type = push AND branch = master
