@@ -61,6 +61,17 @@ RSpec.describe UpdateUser, type: :request do
       expect(skills[2]).to eq('graphql')
     end
 
+    it 'updates a users image' do
+      @user = create(:user, image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Keyboard_cat.jpg/220px-Keyboard_cat.jpg")
+
+      post '/graphql', params: { query: query_3 }
+
+      result = JSON.parse(response.body)
+      data = result['data']
+
+      expect(data["user"]["image"]).to eq("https://www.dailydot.com/wp-content/uploads/215/72/48e5521d11006089.jpg")
+    end
+
     def query
       <<~GQL
       mutation {
@@ -104,6 +115,29 @@ RSpec.describe UpdateUser, type: :request do
             slack: "capleugh"
             skills: ["", "react", ""]
           }
+          ) {
+            name
+            program
+            module
+            id
+            image
+            pronouns
+            email
+            slack
+            skills
+          }
+        }
+      GQL
+    end
+
+    def query_3
+      <<~GQL
+        mutation {
+          user: updateUser(
+            input: {
+              id: "#{@user.id}"
+              image: "https://www.dailydot.com/wp-content/uploads/215/72/48e5521d11006089.jpg"
+            }
           ) {
             name
             program
