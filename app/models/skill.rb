@@ -1,5 +1,5 @@
 class Skill < ApplicationRecord
-  validates_presence_of :name
+  validates :name, exclusion: { in: [nil] }
 
   belongs_to :user
 end
