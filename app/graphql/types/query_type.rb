@@ -29,7 +29,7 @@ module Types
     field :get_available_pairings, resolver: Resolvers::AvailablePairings
 
     def get_user_pairings(id:)
-      Pairing.where('pairer_id = ? AND pairee_id IS NOT NULL OR pairee_id = ?', id, id)
+      Pairing.where(pairer_id: id)
     end
 
     def get_users
