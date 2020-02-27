@@ -1,5 +1,4 @@
 class NotificationsWorker < ActiveJob::Base
-  sidekiq_options retry: false
   queue_as :default
 
   def perform(contact_info, message)
