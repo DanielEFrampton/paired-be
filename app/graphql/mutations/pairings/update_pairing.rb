@@ -14,24 +14,20 @@ module Mutations
         pairing
       end
 
-    private
+      private
 
-      def create_message(pairing)
-        name = pairing.pairee_name
-        date = pairing.date
-        time = pairing.time
-        MessageGenerator.new.pairing_notification(name, date, time)
-      end
-
-      def notifications(pairing)
-        message = create_message(pairing)
-        if pairing.pairer_phone_number
-          phone_number = pairing.pairer_phone_number
-          SmsWorker.perform_later(phone_number, message)
-        else
-          EmailWorker.perform_later(pairing)
+        def create_message(pairing)
+          name = pairing.pairee_name
+          date = pairing.date
+          time = pairing.time
+          MessageGenerator.new.pairing_notification(name, date, time)
         end
-      end
+
+        def notifications(pairing)
+          message = create_message(pairing)
+          contact_info = pairing.pairer_contact_info
+          NotificationsWorker.perform_later(contact_info, message)
+        end
     end
   end
 end
