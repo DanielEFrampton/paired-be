@@ -47,5 +47,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Rack-CORS allowed origin in this environment
-  config.allowed_cors_origins = ["http://locahost:3000"]
+  config.allowed_cors_origins = ["http://localhost:3000"]
 end
