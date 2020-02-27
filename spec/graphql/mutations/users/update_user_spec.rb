@@ -5,11 +5,11 @@ module Mutations
 RSpec.describe UpdateUser, type: :request do
   describe '.resolve' do
     it 'updates a user' do
-      pam = create(:user)
-      cheryl = create(:user, id: 10, name: "Cheryl", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
+      @pam = create(:user)
+      @cheryl = create(:user, name: "Cheryl", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
 
-      skill_1 = cheryl.skills.create(name: "sql")
-      skill_2 = cheryl.skills.create(name: "javascript")
+      skill_1 = @cheryl.skills.create(name: "sql")
+      skill_2 = @cheryl.skills.create(name: "javascript")
 
       post '/graphql', params: { query: query }
 
@@ -24,13 +24,13 @@ RSpec.describe UpdateUser, type: :request do
     end
 
     it 'returns updated skills for a user' do
-      cheryl = create(:user, id: 10, name: "Lana", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
-      pam = create(:user)
-      skill_1 = cheryl.skills.create(name: "sql")
-      skill_2 = cheryl.skills.create(name: "javascript")
-      skill_3 = cheryl.skills.create(name: "graphql")
+      @cheryl = create(:user, name: "Lana", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
+      @pam = create(:user)
+      skill_1 = @cheryl.skills.create(name: "sql")
+      skill_2 = @cheryl.skills.create(name: "javascript")
+      skill_3 = @cheryl.skills.create(name: "graphql")
 
-      expect(cheryl.skills).to eq([skill_1, skill_2, skill_3])
+      expect(@cheryl.skills).to eq([skill_1, skill_2, skill_3])
 
       post '/graphql', params: { query: query }
 
@@ -66,7 +66,7 @@ RSpec.describe UpdateUser, type: :request do
       mutation {
         user: updateUser(
           input: {
-            id: "10"
+            id: "#{@cheryl.id}"
             name: "Carl Crockett"
             email: "cap@gmail.com"
             module: 2
