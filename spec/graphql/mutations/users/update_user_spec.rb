@@ -69,7 +69,7 @@ RSpec.describe UpdateUser, type: :request do
             id: "10"
             name: "Carl Crockett"
             email: "cap@gmail.com"
-            module: "2"
+            module: 2
             program: "BE"
             pronouns: "she/her"
             slack: "capleugh"
@@ -98,7 +98,7 @@ RSpec.describe UpdateUser, type: :request do
             id: "11"
             name: "Carl Crockett"
             email: "cap@gmail.com"
-            module: "2"
+            module: 2
             program: "BE"
             pronouns: "she/her"
             slack: "capleugh"

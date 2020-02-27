@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe 'CreatePairings', type: :request do
   describe '.resolve' do
     before :each do
-      @user = create :user, firebase_id: '5caa7eebfdebb8348e53a48e'
+      @user = (create :user, id: '22')
       @query = <<~GQL
               mutation {
                 createPairings(input: {
-                              pairings: [{date:"Mon Apr 29 2019",time:"morning",pairer:"5caa7eebfdebb8348e53a48e"},{date:"Mon May 06 2019",time:"morning",pairer:"5caa7eebfdebb8348e53a48e"}]
+                              pairings: [{date:"Mon Apr 29 2019", time:"morning", pairer:"22"},{date:"Mon May 06 2019", time:"morning", pairer:"22"}]
                               }) {
                                 unbookedPairings {
-                                  pairer {id}
+                                  pairer { id }
                                   date
                                   time
                                 }
