@@ -34,5 +34,13 @@ RSpec.describe Pairing, type: :model do
     it 'pairee_phone_number' do
       expect(@pairing.pairee_phone_number).to eq(@pairing.pairee.phone_number)
     end
+
+    it 'pairer_contact_info' do
+      expect(@pairing.pairer_contact_info).to eq({phone_number: @pairing.pairer.phone_number, email_address: @pairing.pairer.email})
+    end
+
+    it 'pairee_contact_info' do
+      expect(@pairing.pairee_contact_info).to eq({phone_number: @pairing.pairee.phone_number, email_address: @pairing.pairee.email})
+    end
   end
 end
