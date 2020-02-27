@@ -51,6 +51,6 @@ task :import => [:environment] do
                    )
   end
 
-  #Assocaited migration to remove oid from users table 
+  #Assocaited migration to remove oid from users table
   #ActiveRecord::Migration.remove_column :users, :oid, :string
 end

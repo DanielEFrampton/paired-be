@@ -15,7 +15,6 @@ module Types
     field :firebase_id, String, null: false
 
     field :skills, [String], null: true
-    field :unbooked_pairings, [Types::PairingType], null: true
 
     field :total_bookings, Integer, null: true
     field :total_mentor_hours, Float, null: true
@@ -26,10 +25,6 @@ module Types
       object.skills.map do |skill|
         skill.name
       end
-    end
-
-    def unbooked_pairings
-      object.paired_users.where(pairee: nil)
     end
 
     def total_bookings

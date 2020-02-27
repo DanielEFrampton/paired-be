@@ -5,9 +5,9 @@ module Mutations
     RSpec.describe UpdatePairing, type: :request do
       describe '.resolve' do
         before :each do
-          @user_1 = create(:user, name: 'Bob')
-          @user_2 = create(:user, name: 'Sally')
-          @pairing = create(:pairing, pairer_id: @user_1.id, pairee_id: nil)
+          @user_1 = create(:user, id: 2, name: 'Bob')
+          @user_2 = create(:user, id: 22, name: 'Sally')
+          @pairing = create(:pairing, id: 34, pairer_id: 2, pairee_id: nil)
           @sms_class_double = class_double("SmsService").as_stubbed_const(:transfer_nested_constants => true)
           @sms_instance_double = instance_double("SmsService.new")
           allow(@sms_class_double).to receive(:new).and_return(@sms_instance_double)
@@ -18,6 +18,7 @@ module Mutations
           post '/graphql', params: { query: query }
           json = JSON.parse(response.body)
           data = json['data']
+
           expect(data['updatePairing']['pairee']['name']).to eq('Sally')
           expect(data['updatePairing']['notes']).to eq('What is even happening?')
         end
@@ -27,8 +28,8 @@ module Mutations
         <<~GQL
         mutation {
           updatePairing(input: {
-                  id: #{@pairing.id}
-                  pairee: #{@user_2.id}
+                  id: "34"
+                  pairee: "22"
                   notes: "What is even happening?"
                   }) {
             pairer {

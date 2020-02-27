@@ -7,7 +7,7 @@ module Mutations
 
       def resolve(attributes)
         id = attributes[:id]
-        userpairings = Pairing.where(pairer_id: id)
+        userpairings = Pairing.where('pairer_id = ? AND pairee_id IS NULL', id)
         userpairings.destroy_all
       end
     end
