@@ -23,9 +23,11 @@ module Mutations
 
         old_skills = user.skills
 
-        new_skills.each.with_index do |new_skill, new_i|
-          old_skills.each.with_index do |old_skill, old_i|
-            old_skill.update(name: new_skill) if new_i == old_i && !new_skill.empty?
+        if new_skills
+          new_skills.each.with_index do |new_skill, new_i|
+            old_skills.each.with_index do |old_skill, old_i|
+              old_skill.update(name: new_skill) if new_i == old_i && !new_skill.empty?
+            end
           end
         end
         user
