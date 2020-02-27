@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates_presence_of :name, :mod, :program, :pronouns,
+  validates_presence_of :name, :mod, :program,
                         :slack, :email, :image, :firebase_id
 
   validates_numericality_of :mod, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5
