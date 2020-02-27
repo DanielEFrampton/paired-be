@@ -10,7 +10,7 @@ module Types
       argument :id, ID, required: true
     end
 
-    field :get_user_by_firebase_i_d, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
+    field :get_user_by_firebase_i_d, Types::UserType, null: true, description: 'Returns a single user by firebase id' do
       argument :id, ID, required: true
     end
 
@@ -22,14 +22,10 @@ module Types
       argument :id, ID, required: true
     end
 
-    field :get_user_by_firebase_i_d, Types::UserType, null: false, description: 'Returns a single user by firebase id' do
-      argument :id, ID, required: true
-    end
-
     field :get_available_pairings, resolver: Resolvers::AvailablePairings
 
     def get_user_pairings(id:)
-      Pairing.where(pairer_id: id)
+      Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
     end
 
     def get_users
