@@ -24,5 +24,17 @@ class Pairing < ApplicationRecord
 
   def pairee_phone_number
     pairee.phone_number
-  end             
+  end
+
+  def pairer_contact_info
+    {phone_number: pairer_phone_number,
+     email_address: pairer_email
+    }
+  end
+
+  def pairee_contact_info
+    {phone_number: pairee_phone_number,
+     email_address: pairee_email
+    }
+  end
 end
