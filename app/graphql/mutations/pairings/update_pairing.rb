@@ -2,7 +2,7 @@ module Mutations
   module Pairings
     class UpdatePairing < ::Mutations::BaseMutation
       argument :id, ID, required: true
-      argument :pairee, Integer, required: true
+      argument :pairee, String, required: true
       argument :notes, String, required: false
 
       type Types::PairingType
