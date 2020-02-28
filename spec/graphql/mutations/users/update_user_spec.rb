@@ -56,9 +56,9 @@ RSpec.describe UpdateUser, type: :request do
       result = JSON.parse(response.body)
       skills = result["data"]["user"]["skills"]
 
-      expect(skills[0]).to eq('')
+      expect(skills[0]).to eq('sql')
       expect(skills[1]).to eq('react')
-      expect(skills[2]).to eq('')
+      expect(skills[2]).to eq('graphql')
     end
 
     it 'updates a users image' do
