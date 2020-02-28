@@ -38,7 +38,7 @@ module Mutations
             email: "so@gmail.com"
             image: "https://robohash.org/image"
             firebaseID: "425tgw2g4w43"
-            module: "3"
+            module: 3
             program: "BE"
             phoneNumber: "4231563232"
             pronouns: "she/her"
@@ -53,6 +53,7 @@ module Mutations
             image
             pronouns
             email
+            phoneNumber
             slack
             skills
             }
