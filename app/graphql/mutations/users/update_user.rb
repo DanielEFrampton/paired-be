@@ -25,7 +25,7 @@ module Mutations
 
         if new_skills # necessary because updateUser is used by updateImage
           new_skills.each_with_index do |new_skill, index|
-            unless new_skill == old_skills[index].name
+            unless new_skill == old_skills[index].name || new_skill.empty?
               old_skills[index].update(name: new_skill)
             end
           end
