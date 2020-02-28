@@ -6,10 +6,10 @@ RSpec.describe UpdateUser, type: :request do
   describe '.resolve' do
     it 'updates a user' do
       @pam = create(:user)
-      @cheryl = create(:user, name: "Cheryl", email: "tunt@gmail.com", mod: "4", program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
-
+      @cheryl = create(:user, name: "Cheryl", email: "tunt@gmail.com", mod: 4, program: "BE", pronouns: "she/her", slack:"@cheryl_tunt")
       skill_1 = @cheryl.skills.create(name: "sql")
       skill_2 = @cheryl.skills.create(name: "javascript")
+      skilL_3 = @cheryl.skills.create(name: "")
 
       post '/graphql', params: { query: query }
 
@@ -56,9 +56,9 @@ RSpec.describe UpdateUser, type: :request do
       result = JSON.parse(response.body)
       skills = result["data"]["user"]["skills"]
 
-      expect(skills[0]).to eq('sql')
+      expect(skills[0]).to eq('')
       expect(skills[1]).to eq('react')
-      expect(skills[2]).to eq('graphql')
+      expect(skills[2]).to eq('')
     end
 
     it 'updates a users image' do

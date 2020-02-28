@@ -4,7 +4,7 @@ module Mutations
       argument :name, String, required: true
       argument :email, String, required: true
       argument :image, String, required: true
-      argument :module, String,
+      argument :module, Integer,
                required: true,
                as: :mod
       argument :program, String, required: true
