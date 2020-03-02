@@ -1,5 +1,19 @@
 # Landslide: Paired 2.0
 
+## Table of Contents
+
+- [Deployed App](#deployed-app)
+- [Local Deployment](#local-deployment)
+- [Dev Team](#dev-team)
+- [Description](#description)
+- [Agile Development](#agile-development)
+- [Technologies & Architectures](#technologies--architecture)
+- [React & Redux Tutorial](#react--redux-tutorial)
+- [Testing & Performance](#testing--performance)
+- [PostgreSQL Schema](#postgresql-schema)
+- [GraphQL Endpoints](#graphql-endpoints)
+- [Resource Credits](#resource-credits)
+
 ## Deployed App
 
 Vist the deployed Paired 2.0 app at [http://landslide-57f9a.firebaseapp.com/](http://landslide-57f9a.firebaseapp.com/).
@@ -115,4 +129,3 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 
 - [Architecture chart created with Lucidchart.com](http://www.lucidchart.com)
 - [Technology logos from Worldvectorlogo.com](http://worldvectorlogo.com/)
-- [Landslide logo from Onlinewebfonts.com](https://www.onlinewebfonts.com/icon/528343)
