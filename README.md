@@ -46,7 +46,7 @@ Soon thereafter the team had [a "DTR" meeting](https://gist.github.com/DanielEFr
 
 ## Technologies & Architecture
 
-![Technology and Architecture Chart](https://user-images.githubusercontent.com/40702808/75509581-665bf580-59a5-11ea-9323-0fc5ccdba589.png)
+![Technology and Architecture Chart](https://user-images.githubusercontent.com/40702808/75644294-10828a00-5bff-11ea-801c-33c0e7b75691.png)
 
 - Hosting: Firebase (FE) and Heroku (BE, SMS)
 - Database: PostgreSQL
