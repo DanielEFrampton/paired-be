@@ -17,6 +17,7 @@ RSpec.describe Types::QueryType do
     end
     it 'can find user stats' do
       result = PairedBeSchema.execute(query).as_json
+
       expect(result["data"]["getUserStats"]["name"]).to eq("Susie Q")
       expect(result["data"]["getUserStats"]["totalBookings"]).to eq(5)
       expect(result["data"]["getUserStats"]["totalMentorHours"]).to eq(2.5)
@@ -25,8 +26,9 @@ RSpec.describe Types::QueryType do
     end
 
     it 'can have a mentee that is no longer in the system' do
-        user_4 = create(:user, id: 343)
-        create(:pairing, pairer_id: @user.id, pairee_id: 343)
+      user_4 = create(:user, id: 343)
+      create(:pairing, pairer_id: @user.id, pairee_id: 343)
+
       result = PairedBeSchema.execute(query_2).as_json
       result = PairedBeSchema.execute(query).as_json
       expect(result["data"]["getUserStats"]["mentees"].count).to eq(3)
