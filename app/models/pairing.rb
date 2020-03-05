@@ -22,6 +22,10 @@ class Pairing < ApplicationRecord
     pairer.phone_number
   end
 
+  def pairer_name
+    pairer.name
+  end
+
   def pairee_phone_number
     pairee.phone_number
   end
