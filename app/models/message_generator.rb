@@ -5,6 +5,11 @@ class MessageGenerator
     "View it at #{paired_link}."
   end
 
+  def cancel_notification(name, date, time)
+    "#{name} has cancelled a pairing session with you from #{times[time]} " +
+    "on #{date_formatter(date)}. Keep pairing!"
+  end
+
   private
 
   def times
