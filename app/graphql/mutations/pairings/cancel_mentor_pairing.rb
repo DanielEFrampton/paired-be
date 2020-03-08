@@ -1,14 +1,15 @@
+
 module Mutations
   module Pairings
     class CancelMentorPairing < ::Mutations::BaseMutation
       argument :id, ID, required: true
-      argument :pairee, String, required: true
       type Types::PairingType
 
       def resolve(attributes)
         pairing = Pairing.find(attributes[:id])
         notifications(pairing)
-        pairing.delete
+        pairing.update(pairee_id: nil)
+        pairing
       end
 
       private

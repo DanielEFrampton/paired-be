@@ -2,13 +2,13 @@ module Mutations
   module Pairings
     class CancelMenteePairing < ::Mutations::BaseMutation
       argument :id, ID, required: true
-      argument :pairer, String, required: true
       type Types::PairingType
 
       def resolve(attributes)
         pairing = Pairing.find(attributes[:id])
         notifications(pairing)
-        pairing.delete
+        pairing.update(pairee_id: nil)
+        pairing
       end
 
       private
