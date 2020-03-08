@@ -9,7 +9,7 @@ module Types
     field :unbooked_pairings, [Types::PairingType], null: true
 
     def pairer
-      return if object.class == Array
+      return if object.class == Array || object.pairer_id.nil?
       User.find(object.pairer_id)
     end
 
