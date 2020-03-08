@@ -27,10 +27,16 @@ RSpec.describe Types::QueryType do
 
     it 'can have a mentee that is no longer in the system' do
       user_4 = create(:user, id: 343)
-      create(:pairing, pairer_id: @user.id, pairee_id: 343)
 
-      result = PairedBeSchema.execute(query_2).as_json
+      create(:pairing, pairer_id: @user.id, pairee_id: 343)
       result = PairedBeSchema.execute(query).as_json
+      expect(result["data"]["getUserStats"]["mentees"].count).to eq(4)
+
+      #the query_2 deletes a pairee user 
+      PairedBeSchema.execute(query_2).as_json
+      result = PairedBeSchema.execute(query).as_json
+
+      expect(result["data"]["getUserStats"]["totalMentorHours"]).to eq(3)
       expect(result["data"]["getUserStats"]["mentees"].count).to eq(3)
     end
   end
