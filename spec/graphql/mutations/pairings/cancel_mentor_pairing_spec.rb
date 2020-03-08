@@ -17,14 +17,16 @@ RSpec.describe CancelMentorPairing, type: :request do
         it 'cancels a mentor pairing' do
           expect(Pairing.count).to eq(3)
           post '/graphql', params: {query: query}
-          expect(Pairing.count).to eq(2)
+          expect(Pairing.count).to eq(3)
         end
 
     it 'returns the pairees information after cancellation' do
       post '/graphql', params: { query: query }
       json = JSON.parse(response.body)
       data = json['data']
-      expect(data['cancelMentorPairing']['pairee']['name']).to eq(@user_2.name)
+
+      expect(data['cancelMentorPairing']['pairee']).to eq(nil)
+      expect(data['cancelMentorPairing']['pairer']["name"]).to eq(@user.name)
     end
   end
     def query
@@ -32,7 +34,6 @@ RSpec.describe CancelMentorPairing, type: :request do
       mutation {
         cancelMentorPairing(input: {
                 id: "#{@pairing.id}"
-                pairee: "#{@user_2.id}"
                 }) {
           pairer {
             name
