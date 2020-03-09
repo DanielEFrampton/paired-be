@@ -6,6 +6,6 @@ class AppointmentNotif < ApplicationMailer
 
   def reminder_message(address, message)
     @message = message
-    mail(to: address, subject: "You have a pairing in one hour!")
+    mail(to: address, subject: "You have a pairing today!")
   end
 end
