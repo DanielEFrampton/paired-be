@@ -1,5 +1,19 @@
 # Landslide: Paired 2.0
 
+## Table of Contents
+
+- [Deployed App](#deployed-app)
+- [Local Deployment](#local-deployment)
+- [Dev Team](#dev-team)
+- [Description](#description)
+- [Agile Development](#agile-development)
+- [Technologies & Architectures](#technologies--architecture)
+- [React & Redux Tutorial](#react--redux-tutorial)
+- [Testing & Performance](#testing--performance)
+- [PostgreSQL Schema](#postgresql-schema)
+- [GraphQL Endpoints](#graphql-endpoints)
+- [Resource Credits](#resource-credits)
+
 ## Deployed App
 
 Vist the deployed Paired 2.0 app at [http://landslide-57f9a.firebaseapp.com/](http://landslide-57f9a.firebaseapp.com/).
@@ -32,7 +46,7 @@ Soon thereafter the team had [a "DTR" meeting](https://gist.github.com/DanielEFr
 
 ## Technologies & Architecture
 
-![Technology and Architecture Chart](https://user-images.githubusercontent.com/40702808/75509581-665bf580-59a5-11ea-9323-0fc5ccdba589.png)
+![Technology and Architecture Chart](https://user-images.githubusercontent.com/40702808/75644294-10828a00-5bff-11ea-801c-33c0e7b75691.png)
 
 - Hosting: Firebase (FE) and Heroku (BE, SMS)
 - Database: PostgreSQL
@@ -115,4 +129,3 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 
 - [Architecture chart created with Lucidchart.com](http://www.lucidchart.com)
 - [Technology logos from Worldvectorlogo.com](http://worldvectorlogo.com/)
-- [Landslide logo from Onlinewebfonts.com](https://www.onlinewebfonts.com/icon/528343)
