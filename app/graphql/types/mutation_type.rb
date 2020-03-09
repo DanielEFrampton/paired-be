@@ -3,6 +3,10 @@ module Types
     field :create_user, mutation: Mutations::Users::CreateUser
     field :create_pairings, mutation: Mutations::Pairings::CreatePairings
     field :delete_pairing, mutation: Mutations::Pairings::DeletePairing
+
+    field :cancel_mentor_pairing, mutation: Mutations::Pairings::CancelMentorPairing
+    field :cancel_mentee_pairing, mutation: Mutations::Pairings::CancelMenteePairing
+
     field :update_user, mutation: Mutations::Users::UpdateUser
     field :update_pairing, mutation: Mutations::Pairings::UpdatePairing
     field :delete_pairings, mutation: Mutations::Pairings::DeleteUserPairings
