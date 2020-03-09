@@ -5,6 +5,11 @@ class MessageGenerator
     "View it at #{paired_link}."
   end
 
+  def pairing_reminder(time)
+    "Friendly reminder that you have a pairing booked today at #{time[time]}. " +
+    "View it at #{paired_link}"
+  end
+
   private
 
   def times
