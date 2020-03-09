@@ -2,6 +2,15 @@ class Pairing < ApplicationRecord
   belongs_to :pairer, class_name: 'User'
   belongs_to :pairee, class_name: 'User', optional: true
 
+  def self.send_reminders
+
+  end
+
+  def self.today
+    todays_date = DateFormatter.format(Time.now)
+    where(date: todays_date)
+  end
+
   def pairer_email
     pairer.email
   end
