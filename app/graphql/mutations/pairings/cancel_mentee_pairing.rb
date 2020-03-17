@@ -1,4 +1,4 @@
-# Mentor cancels pairing created by mentee
+# Mentor cancels pairing created by mentee, notifying mentee
 module Mutations
   module Pairings
     class CancelMenteePairing < ::Mutations::BaseMutation
