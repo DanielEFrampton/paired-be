@@ -115,5 +115,8 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   # Rack-CORS allowed origin in this environment
-  config.allowed_cors_origins = ["https://landslide-57f9a.firebaseapp.com", "https://paired-turing.firebaseapp.com"]
+  config.allowed_cors_origins = ["https://landslide-57f9a.firebaseapp.com",
+                                 "https://paired-turing.firebaseapp.com",
+                                 "https://www.paired.tech",
+                                 "67.166.26.146"]
 end
