@@ -8,4 +8,9 @@ class AppointmentNotif < ApplicationMailer
     @message = message
     mail(to: address, subject: "You have a pairing today!")
   end
+
+  def cancel_message(address, message)
+    @message = message
+    mail(to: address, subject: "Your pairing has been canceled. :(")
+  end
 end
