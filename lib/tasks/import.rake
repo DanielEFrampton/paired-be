@@ -1,12 +1,17 @@
-desc "Import data from jsom files"
+# Import JSON data exported from old BE's MongoDB from command line.
+# Usage: `rake import users.json pairings.json` if files are in root dir.
+
+desc "Import data from json files"
 task :import => [:environment] do
 
   Skill.destroy_all
   Pairing.destroy_all
   User.destroy_all
 
-  #if you need to add oid to the user table use the following line
-  #ActiveRecord::Migration.add_column :users, :oid, :string
+  # If you need to add oid to the user table use the following line.
+  # Does not work consistently; might need to run task once with below
+  # uncommented, then run again with line commented.
+  # ActiveRecord::Migration.add_column :users, :oid, :string
 
   File.open(ARGV[1]).each do |line|
     user_data = JSON.parse(line)
@@ -51,6 +56,6 @@ task :import => [:environment] do
                    )
   end
 
-  #Assocaited migration to remove oid from users table
-  #ActiveRecord::Migration.remove_column :users, :oid, :string
+  # Associated migration to remove oid from users table
+  ActiveRecord::Migration.remove_column :users, :oid, :string
 end
