@@ -1,4 +1,4 @@
-
+# Mentee cancels pairing, notifying mentor
 module Mutations
   module Pairings
     class CancelMentorPairing < ::Mutations::BaseMutation
@@ -15,7 +15,7 @@ module Mutations
       private
 
       def create_message(pairing)
-        name = pairing.pairer_name
+        name = pairing.pairee_name
         date = pairing.date
         time = pairing.time
         MessageGenerator.new.cancel_notification(name, date, time)
@@ -23,7 +23,7 @@ module Mutations
 
       def notifications(pairing)
         message = create_message(pairing)
-        contact_info = pairing.pairee_contact_info
+        contact_info = pairing.pairer_contact_info
         NotificationsWorker.perform_later(contact_info, message)
       end
     end
