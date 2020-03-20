@@ -9,12 +9,13 @@ class Pairing < ApplicationRecord
     pairings.each do |pairing|
       contact_info = pairing.pairer_contact_info
       NotificationsWorker.perform_later(contact_info, message, type)
-    end   
+    end
   end
 
   def self.today_at(time)
     todays_date = DateFormatter.format(Time.now)
-    where(date: todays_date, time: time)
+    where(date: todays_date, time: time).
+    where.not(pairee_id: nil)
   end
 
   def pairer_email
