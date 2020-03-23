@@ -28,6 +28,11 @@ RSpec.describe CancelMentorPairing, type: :request do
       expect(data['cancelMentorPairing']['pairee']).to eq(nil)
       expect(data['cancelMentorPairing']['pairer']["name"]).to eq(@user.name)
     end
+    it 'removes time and notes from pairing after cancellation' do
+      post '/graphql', params: { query: query }
+      json = JSON.parse(response.body)
+      expect(@pairing.notes).to eq(nil)
+    end
   end
     def query
       <<~GQL
