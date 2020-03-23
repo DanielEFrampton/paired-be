@@ -5,7 +5,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 1. [**getUser(id: ID)**](#get-user) *Finds a specific user in the database*
   * Example Query
-  ```json
+  ```
   {
       getUser(id: "1") {
         name
@@ -31,7 +31,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
   ```
 2. [**getUserByFirebaseID(id: ID)**](#get-user-by-firebase-id)  *Finds user by FirebaseID for logging in*
   * Example Query
-  ```json
+  ```
       { getUserByFirebaseID(
       id: "er561v3h0si34bu56m1l2e34v7ax"
         ) {
@@ -72,7 +72,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
   ```
 3. [**getUserPairings(id: ID)**](#get-user-pairings)  *Will return a list of booked pairings where the user is the pairer or pairee*
   * Example Query
-  ```json
+  ```
     { getUserPairings(id: "1")
       {
         pairer {
@@ -158,7 +158,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
   ```
 4. [**getUsers**](#get-user)  *Returns all users in the database*
   * Example Query
-  ```json
+  ```
   {
     getUsers {
       name
@@ -208,7 +208,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 5. [**getPairings**](#get-pairings)  *Returns all pairings*
   * Example Query
-  ```json
+  ```
   { getPairings
     {
       id
@@ -287,7 +287,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 6. [**getPairing (id: ID)**](#get-pairing)  *Finds a specific pairing by pairing id*
   * Example Query
-  ```json
+  ```
   { getPairing(id: "1") {
       pairer {
         name
@@ -340,7 +340,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 8. [**getUserStats (id: ID)**](#get-user-stats)  *Returns a specific users statistics on pairing hours*
   * Example Query
-  ```json
+  ```
   {
     getUserStats(id: "1") {
       name
@@ -378,7 +378,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 1. [**createUser(CreateUserInput)**](#create-user)  *Used during profile creation. Will create a new user in the database*
   * Example Query
-  ```json
+  ```
   mutation {
           user: createUser(
           input: {
@@ -430,7 +430,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 2. [**updateUser(UpdateUserInput)**](#update-user)  *Allows a user to update their profile details.*
   * Example Query
-  ```json
+  ```
   mutation {
     user: updateUser(
       input: {
@@ -481,7 +481,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 3. [**deleteUser(DeleteUserInput)**](#delete-user)  *Allows a user to delete their account.*
   * Example Query
-  ```json
+  ```
   mutation {
     deleteUser(
       input:{
@@ -503,7 +503,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
   ```
 4. [**createPairings(createPairingsInput)**](#create-pairings)  *Creates open pairings for a user when they set availability. Pairee is nil.*
   * Example Query
-  ```json
+  ```
     mutation {
       createPairings(input: {
         pairings: [
@@ -555,7 +555,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
   ```
 5. [**updatePairings(updatePairingsInput)**](#update-pairings)  *When a pairing is booked this updates the pairee from nil to an assigned pairee.*
   * Example Query
-  ```json
+  ```
   mutation {
     updatePairing(input: {
           id: "1"
@@ -621,7 +621,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 6. [**deletePairing(id: ID)**](#delete-pairing)  *Deletes a specific date and time of availability for a user.*
   * Example Query
-  ```json
+  ```
    mutation {
              pairing: deletePairing(
                input: {
@@ -648,7 +648,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
   ```
 7. [**deletePairings(id: ID)**](#delete-pairings)  *Deletes all old availability for a user when they update their availability.*
   * Example Query
-  ```js
+  ```
    mutation {
         deletePairings(
           input:{
@@ -674,7 +674,7 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
 
 1. [**getPairing (id: ID)**](#get-pairing)  *Returns all available pairings filtered by program, mod and date*
   * Example Query
-  ```json
+  ```
   {
     getAvailablePairings(filter: {
       program: "FE",
