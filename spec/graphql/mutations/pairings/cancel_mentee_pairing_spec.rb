@@ -29,6 +29,12 @@ module Mutations
         expect(data['cancelMenteePairing']['pairee']).to eq(nil)
         expect(data['cancelMenteePairing']['pairer']['name']).to eq(@user.name)
       end
+
+      it 'removes time and notes from pairing after cancellation' do
+        post '/graphql', params: { query: query }
+        json = JSON.parse(response.body)
+        expect(@pairing.notes).to eq(nil)
+      end
     end
 
       def query

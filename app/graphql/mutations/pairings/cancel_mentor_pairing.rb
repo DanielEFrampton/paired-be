@@ -8,7 +8,7 @@ module Mutations
       def resolve(attributes)
         pairing = Pairing.find(attributes[:id])
         notifications(pairing)
-        pairing.update(pairee_id: nil)
+        pairing.update(pairee_id: nil, notes: nil)
         pairing
       end
 
