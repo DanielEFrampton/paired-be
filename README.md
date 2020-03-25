@@ -16,7 +16,7 @@
 
 ## Deployed App
 
-Vist the deployed Paired 2.0 app at [http://landslide-57f9a.firebaseapp.com/](http://landslide-57f9a.firebaseapp.com/).
+Vist the deployed Paired 2.0 app at [https://www.paired.tech](https://www.paired.tech).
 
 ## Local Deployment
 
