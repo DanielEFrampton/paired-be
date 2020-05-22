@@ -1,15 +1,13 @@
 class RockPebbleMailer < ApplicationMailer
-  def confirmation_message(address, info)
-    pebble = info[:name]
-    @message = "#{pebble} has requested you as a Rock through the Rock and Pebble
+  def confirmation_message(address, name)
+    @message = "#{name} has requested you as a Rock through the Rock and Pebble
                 Program on Paired.tech. Please visit #{paired_link} to accept or deny
                 this request."
     mail(to: address, subject: "Someone has requested you as a Rock!")
   end
 
-  def rock_accepted_message(address, info)
-    rock = info[:name]
-    @message = "#{rock} has accepted your Rock request. Please use their contact
+  def rock_accepted_message(address, name)
+    @message = "#{name} has accepted your Rock request. Please use their contact
                 information provided in your Paired Rock and Pebble dashboard
                 to get in touch with them and say Hi!"
     mail(to: address, subject: "Your Rock request has been accepted!")
