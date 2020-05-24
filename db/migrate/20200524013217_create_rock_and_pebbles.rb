@@ -1,4 +1,4 @@
-class CreateRockandPebbles < ActiveRecord::Migration[6.0]
+class CreateRockAndPebbles < ActiveRecord::Migration[6.0]
   def change
     create_table :rock_and_pebbles do |t|
       t.integer :rock_id
