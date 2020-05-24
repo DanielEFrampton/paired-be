@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-   describe 'validations' do
+  describe 'validations' do
       it { should validate_presence_of :name }
       it { should validate_presence_of :mod }
       it { should validate_presence_of :program }
@@ -12,12 +12,16 @@ RSpec.describe User, type: :model do
       it { should validate_numericality_of(:mod).is_less_than_or_equal_to(5) }
     end
 
-    describe 'relationships' do
+  describe 'relationships' do
       it { should have_many :interests }
       it { should have_many :skills }
       it { should have_many :paired_users }
       it { should have_many(:pairees).through(:paired_users) }
       it { should have_many :pairing_users }
       it { should have_many(:pairers).through(:pairing_users) }
+      it { should have_many :rock_users }
+      it { should have_many :pebble_users }
+      it { should have_many(:pebbles).through(:pebble_users)}
+      it { should have_many(:rocks).through(:rock_users)}
     end
 end
