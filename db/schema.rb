@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_013217) do
+ActiveRecord::Schema.define(version: 2020_05_24_212834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_013217) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "firebase_id"
     t.integer "mod"
+    t.boolean "rock_opt_in", default: false
   end
 
   add_foreign_key "interests", "users"

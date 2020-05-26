@@ -13,6 +13,7 @@ module Types
     field :image, String, null: false
     field :phone_number, String, null: true
     field :firebase_id, String, null: false
+    field :rock_opt_in, Boolean, null: false
 
     field :skills, [String], null: true
 
