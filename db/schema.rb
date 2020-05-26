@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_175936) do
+ActiveRecord::Schema.define(version: 2020_05_24_212834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_02_26_175936) do
     t.string "time"
   end
 
+  create_table "rock_and_pebbles", force: :cascade do |t|
+    t.integer "rock_id"
+    t.integer "pebble_id"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -53,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_175936) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "firebase_id"
     t.integer "mod"
+    t.boolean "rock_opt_in", default: false
   end
 
   add_foreign_key "interests", "users"

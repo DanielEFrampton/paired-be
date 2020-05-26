@@ -13,6 +13,12 @@ class User < ApplicationRecord
   has_many :pairing_users, foreign_key: :pairee_id, class_name: 'Pairing'
   has_many :pairers, through: :pairing_users
 
+  has_many :rock_roles, foreign_key: :pebble_id, class_name: 'RockAndPebble'
+  has_many :rocks, through: :rock_roles
+
+  has_many :pebble_roles, foreign_key: :rock_id, class_name: 'RockAndPebble'
+  has_many :pebbles, through: :pebble_roles
+
   def total_mentor_bookings
     Pairing.where('pairer_id = ? AND pairee_id IS NOT NULL', self.id).count
   end
