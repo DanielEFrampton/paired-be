@@ -9,5 +9,6 @@ before_install:
 before_script:
 - psql -c 'create database paired_be_test;' -U postgres
 deploy:
+  provider: heroku
   api_key:
     secure: mn4muW+g+a9t/tCVh+v6MmOqjJzqr+lyS1NdLKMIGYAyuRFw8L2sJAsyJnP9sUVghDhXMshH1UuQ9xUP7nGPdUEClP4N00PlsmKyUFWoPPz+G0tcF3658MVJ3dWmXyZ93NqjjE7JQ1ITOiCAncKomLfVtS7VR5v5ueS3J2a4vaZvu3uUbW7yi7ClesQOg9l90pGpeEmmaiO/fqyXEe/YTpr3rVsdhhCCSMIs1MEd2+VLPU/+MySIf/Z+jXaqjpP5Oo22/+Dksz+5zxdniAq+gv2vteurpA8YuCy0lrvPjf5b+prC7j/GTqLHY5yiD7S7eN7v854+tsJrcf2BcuWhQhEEQ2vNT8I4qjgd3LS6qo4xvXjxX5oH06ZFspf6cUMfrwJC5Hai/Nqsfu7iPSJVvqfSp6uZWqgXlj6VSkhql+1BzQv2pj719Nn0hVMOmzNk5sdj8R3NZ5XJ6P7TkyEofwzeBiXi1iS3vgxolZm/RTdlPSl70Hu2+o69f0sTDaaVjuKPHIcpHk+559bcdlbleGvlo+Wa+D1hslPKRpL/LkkmuS5u0ftbaF8hRbd2F8yAqp1/HoVaZFYgap8xoeldljLHiQt9d+zBp+AG0nvuqWYmWM1ZruUiR/OnZFZTkys/m7SoMC0NzcDizbZvUhjphRHs+BO5IhGa+tVal+FZc5c=
