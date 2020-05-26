@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_05_24_212834) do
     t.string "time"
   end
 
+  create_table "rock_and_pebbles", force: :cascade do |t|
+    t.integer "rock_id"
+    t.integer "pebble_id"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "skills", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
