@@ -13,14 +13,16 @@ class RockPebbleMailer < ApplicationMailer
     mail(to: address, subject: "Your Rock request has been accepted!")
   end
 
-  def rock_denied_message(address, reason)
-    @message = "Your Rock request was unfortunately not accepted. The reason
+  def rock_denied_message(address, info)
+    reason = info[:reason]
+    name = info[:name]
+    @message = "#{name} declined your Rock request. The reason
                 given was: #{reason}. Even though this request did not work out
                 please go to #{paired_link} and request someone else as your Rock!"
     mail(to: address, subject: "Your Rock request was not accepted.")
   end
 
-  def pebble_relationship_terminated(address, reason)
+  def pebble_relationship_discontinued(address, reason)
     @message = "Your Rock has decided to end your Rock and Pebble relationship.
                 The reason given is: #{reason}. Please feel free to follow up with
                 any feedback that you may have (always be specific, actionable and kind!)
