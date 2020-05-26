@@ -19,9 +19,9 @@ RSpec.describe User, type: :model do
       it { should have_many(:pairees).through(:paired_users) }
       it { should have_many :pairing_users }
       it { should have_many(:pairers).through(:pairing_users) }
-      it { should have_many :rock_users }
-      it { should have_many :pebble_users }
-      it { should have_many(:pebbles).through(:pebble_users)}
-      it { should have_many(:rocks).through(:rock_users)}
+      it { should have_many :rock_roles }
+      it { should have_many :pebble_roles }
+      it { should have_many(:pebbles).through(:pebble_roles)}
+      it { should have_many(:rocks).through(:rock_roles)}
     end
 end
