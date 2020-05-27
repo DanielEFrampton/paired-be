@@ -11,5 +11,7 @@ module Types
     field :update_pairing, mutation: Mutations::Pairings::UpdatePairing
     field :delete_pairings, mutation: Mutations::Pairings::DeleteUserPairings
     field :delete_user, mutation: Mutations::Users::DeleteUser
+
+    field :delete_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::DeleteRockPebbleRelationship
   end
 end
