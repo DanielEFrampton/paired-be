@@ -12,8 +12,8 @@ RSpec.describe 'delete rock and pebble relationship', type: :request do
                       reason: "I'm too busy right now. Sorry."
                     }
                   ){
-                    rock {id}
-                    pebble {id}
+                    rock { id }
+                    myPebbles { id }
                   }
                 }
               GQL
@@ -26,7 +26,7 @@ RSpec.describe 'delete rock and pebble relationship', type: :request do
       post '/graphql', params: {query: @query}
       result = JSON.parse(response.body)['data']['rock_and_pebble']
       expect(result['rock']['id']).to eq(@rock.id.to_s)
-      expect(result['pebble']['id']).to eq(@pebble.id.to_s)
+      expect(result['myPebbles']).to eq([])
       expect(RockAndPebble.count).to eq(0)
     end
   end
