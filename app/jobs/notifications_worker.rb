@@ -8,15 +8,7 @@ class NotificationsWorker < ActiveJob::Base
     AppointmentNotif.send(type, address, message).deliver_now unless sms['response'] == 'success'
   end
 
-  def rock_pebble_confirmation_message(contact_info, type)
-    address = contact_info[:email_address]
-    name = contact_info[:name]
-    RockPebbleMailer.send(type, address, name).deliver_now
-  end
-
-  def rock_pebble_termination_message(termination_info, type)
-    address = termination_info[:email_address]
-    reason = termination_info[:reason]
-    RockPebbleMailer.send(type, address, reason).deliver_now
+  def self.rock_pebble_message(info, type)
+    RockPebbleMailer.send(type, info).deliver_now
   end
 end
