@@ -1,6 +1,6 @@
 module Mutations
   module RockAndPebbles
-    class DeleteRockPebbleRelationship < ::Mutations::BaseMutation
+    class DeclineRockPebbleRelationship < ::Mutations::BaseMutation
       argument :id, ID, required: true
       argument :reason, String, required: true
       type Types::RockAndPebbleType
@@ -16,9 +16,9 @@ module Mutations
 
       def send_pebble_email(rock_and_pebble, attributes)
         reason = attributes[:reason]
-        info = rock_and_pebble.rock_pebble_info(reason)
+        info = rock_and_pebble.rock_pebble_info
 
-        NotificationsWorker.rock_pebble_message(info, :rock_denied_message)
+        NotificationsWorker.rock_pebble_message(info, reason, :rock_denied_message)
       end
     end
   end
