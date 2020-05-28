@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe 'delete rock and pebble relationship', type: :request do
+RSpec.describe 'decline rock and pebble relationship', type: :request do
   describe 'resolve' do
     before :each do
       @rock_and_pebble = create :rock_and_pebble
       @query = <<~GQL
                 mutation {
-                  rock_and_pebble: deleteRockPebbleRelationship(
+                  rock_and_pebble: declineRockPebbleRelationship(
                     input: {
                       id: #{@rock_and_pebble.id}
                       reason: "I'm too busy right now. Sorry."
@@ -21,7 +21,7 @@ RSpec.describe 'delete rock and pebble relationship', type: :request do
       @pebble = @rock_and_pebble.pebble
     end
 
-    it 'deletes the pairing' do
+    it 'deletes the rock and pebble relationship' do
       expect(RockAndPebble.count).to eq(1)
       post '/graphql', params: {query: @query}
       result = JSON.parse(response.body)['data']['rock_and_pebble']
