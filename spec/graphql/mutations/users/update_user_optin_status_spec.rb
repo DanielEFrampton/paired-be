@@ -19,6 +19,13 @@ RSpec.describe UpdateUserOptinStatus, type: :request do
       data = json['data']
 
       expect(data['user']['rockOptIn']).to eq(true)
+
+      post '/graphql', params: { query: query }
+
+      json = JSON.parse(response.body)
+      data = json['data']
+
+      expect(data['user']['rockOptIn']).to eq(false)
     end
 
     def get_query
