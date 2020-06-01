@@ -22,6 +22,10 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_user_rock_and_pebble, Types::UserType, null: false, description: 'Returns rock and pebble relationships by user' do
+      argument :id, ID, required: true
+    end
+
     field :get_available_pairings, resolver: Resolvers::AvailablePairings
 
     def get_user_pairings(id:)
@@ -50,6 +54,10 @@ module Types
 
     def get_pairing(id:)
       Pairing.find(id)
+    end
+
+    def get_user_rock_and_pebble(id:)
+      User.find(id)
     end
   end
 end
