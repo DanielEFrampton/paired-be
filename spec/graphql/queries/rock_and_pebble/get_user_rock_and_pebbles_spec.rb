@@ -11,8 +11,8 @@ RSpec.describe Types::QueryType do
         user_1.pebbles << user_3
 
         result = PairedBeSchema.execute(query).as_json
-        expect(result["data"]["getUserRockAndPebble"]["myRocks"][0]["name"]).to eq('Baby Yoda')
-        expect(result["data"]["getUserRockAndPebble"]["myPebbles"][0]["name"]).to eq('IG-11')
+        expect(result["data"]["getUserRockAndPebble"]["rocks"][0]["name"]).to eq('Baby Yoda')
+        expect(result["data"]["getUserRockAndPebble"]["pebbles"][0]["name"]).to eq('IG-11')
     end
     end
 
@@ -20,7 +20,7 @@ RSpec.describe Types::QueryType do
     <<~GQL
     {
         getUserRockAndPebble(id: "1") {
-        myRocks {
+        rocks {
             name
             module
             program
@@ -30,7 +30,7 @@ RSpec.describe Types::QueryType do
             slack
             image
         }
-        myPebbles {
+        pebbles {
             name
             module
             program
