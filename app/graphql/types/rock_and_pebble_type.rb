@@ -4,5 +4,7 @@ module Types
       field :rock, Types::UserType, null: true
       field :pebble, Types::UserType, null: true
       field :active, Boolean, null: false
+      field :my_rocks, [Types::UserType], null: true
+      field :my_pebbles, [Types::UserType], null: true
   end
 end
