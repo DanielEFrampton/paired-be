@@ -22,8 +22,8 @@ module Types
     field :total_hours_mentored, Float, null: true
     field :mentees, [Types::UserType], null: true
 
-    field :my_rocks, [Types::UserType], null: true
-    field :my_pebbles, [Types::UserType], null: true
+    field :rocks, [Types::UserType], null: true
+    field :pebbles, [Types::UserType], null: true
 
     def skills
       object.skills.map do |skill|
@@ -45,16 +45,6 @@ module Types
 
     def mentees
       object.unique_mentees
-    end
-
-    def my_rocks
-      user = User.find(object.id)
-      user.rocks
-    end
-
-    def my_pebbles
-      user = User.find(object.id)
-      user.pebbles
     end
   end
 end
