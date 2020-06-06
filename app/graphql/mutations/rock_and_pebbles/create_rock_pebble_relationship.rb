@@ -12,6 +12,7 @@ module Mutations
         )
 
         send_confirmation_email(new_rp)
+        return new_rp 
       end
 
       private
