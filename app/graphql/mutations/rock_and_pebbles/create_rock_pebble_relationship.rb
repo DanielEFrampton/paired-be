@@ -8,10 +8,10 @@ module Mutations
       def resolve(attributes)
         new_rp = RockAndPebble.create(
           rock_id: attributes[:rock_id],
-          pebble_id: attributes[:pebble_id],
+          pebble_id: attributes[:pebble_id]
         )
 
-        send_confirmation_email(new_rp)      
+        send_confirmation_email(new_rp)
       end
 
       private
