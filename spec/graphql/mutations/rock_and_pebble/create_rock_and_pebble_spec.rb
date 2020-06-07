@@ -12,10 +12,21 @@ RSpec.describe 'create rp relationship', type: :request do
                       rock_id: #{@user_1.id}
                       pebble_id: #{@user_2.id}
                     }
-                  )
+                  ){
+                    id
+                    rock { id }
+                    pebble { id }
+                  }
                 }
 
               GQL
+    end
+
+    it 'creates new rock and pebble' do
+      post '/graphql', params: {query: @query}
+      result = JSON.parse(response.body)
+      expect(RockAndPebble.count).to eq(1)
+      expect(RockAndPebble.last.id).to eq(result['id'])
     end
   end
 end
