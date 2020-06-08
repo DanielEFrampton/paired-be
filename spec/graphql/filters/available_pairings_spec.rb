@@ -11,9 +11,9 @@ RSpec.describe Types::QueryType do
 
         create(:pairing, pairer_id: user_1.id, pairee_id: user_2.id)
       end
-        user = create(:user, id: 44, mod: 2, program: "FE")
-        user_1 = create(:user, id: 43, mod: 2, program: "FE")
-        user_2 = create(:user, id: 41, mod: 1, program: "FE")
+        user = create(:user, mod: 2, program: "FE")
+        user_1 = create(:user, mod: 2, program: "FE")
+        user_2 = create(:user, mod: 1, program: "FE")
 
          create(:pairing, pairer_id: user.id, pairee_id: nil, date: "Wed Apr 04 2020" )
          create(:pairing, pairer_id: user_1.id, pairee_id: nil, date: "Wed Apr 04 2020" )
