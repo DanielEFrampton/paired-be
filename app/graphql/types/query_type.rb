@@ -22,7 +22,8 @@ module Types
       argument :id, ID, required: true
     end
 
-    field :get_available_pairings, resolver: Resolvers::AvailablePairings
+    field :get_available_pairings, resolver: Filters::AvailablePairings
+    field :find_available_rocks, resolver: Filters::AvailableRocks
 
     def get_user_pairings(id:)
       Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
