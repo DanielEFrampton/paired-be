@@ -29,9 +29,9 @@ require 'search_object/plugin/graphql'
       scope = User.all
       scope = scope.where('program LIKE ?', "%#{value[:program]}%") if value[:program]
       scope = scope.where('mod = ?', value[:module]) if value[:module]
-
-      users = scope.left_outer_joins(:pebble_roles).where(rock_opt_in: true, rock_and_pebbles: { rock_id: nil } )
-      rock_and_pebbles = scope.left_outer_joins(:pebble_roles).where(rock_opt_in: true, rock_and_pebbles: {active: true}).group(:id).having('count(pebble_id) < 2')
+      scope = scope.where(rock_opt_in: true)
+      users = scope.left_outer_joins(:pebble_roles).where(rock_and_pebbles: { rock_id: nil } )
+      rock_and_pebbles = scope.left_outer_joins(:pebble_roles).where(rock_and_pebbles: {active: true}).group(:id).having('count(pebble_id) < 2')
 
       scope = users + rock_and_pebbles
       branches << scope
