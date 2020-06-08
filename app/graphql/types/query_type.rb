@@ -25,6 +25,10 @@ module Types
     field :get_available_pairings, resolver: Filters::AvailablePairings
     field :find_available_rocks, resolver: Filters::AvailableRocks
 
+    field :get_user_rock_and_pebble, Types::UserType, null: false, description: 'Returns rock and pebble relationships by user' do
+      argument :id, ID, required: true
+    end
+
     def get_user_pairings(id:)
       Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
     end
@@ -51,6 +55,10 @@ module Types
 
     def get_pairing(id:)
       Pairing.find(id)
+    end
+
+    def get_user_rock_and_pebble(id:)
+      User.find(id)
     end
   end
 end

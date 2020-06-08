@@ -22,6 +22,9 @@ module Types
     field :total_hours_mentored, Float, null: true
     field :mentees, [Types::UserType], null: true
 
+    field :rocks, [Types::UserType], null: true
+    field :pebbles, [Types::UserType], null: true
+
     def skills
       object.skills.map do |skill|
         skill.name
