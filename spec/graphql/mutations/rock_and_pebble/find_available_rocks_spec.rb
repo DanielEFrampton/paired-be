@@ -11,8 +11,6 @@ RSpec.describe Types::QueryType do
         user_3 = create(:user, mod: 2, program: "BE")
 
         user_4 = create(:user, mod: 3, program: "BE", rock_opt_in: true)
-
-
         user_5 = create(:user, mod: 4, program: "FE", rock_opt_in: true)
         user_6 = create(:user, mod: 3, program: "FE", rock_opt_in: true)
         user_7 = create(:user, mod: 4, program: "FE")
