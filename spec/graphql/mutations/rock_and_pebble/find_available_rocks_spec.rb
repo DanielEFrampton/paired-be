@@ -15,11 +15,11 @@ RSpec.describe Types::QueryType do
         user_6 = create(:user, mod: 3, program: "FE", rock_opt_in: true)
         user_7 = create(:user, mod: 4, program: "FE")
 
-        RockAndPebble.create(rock_id: 23, pebble_id: user_5.id, active: true)
-        RockAndPebble.create(rock_id: 23, pebble_id: user_6.id, active: true)
+        RockAndPebble.create(rock_id: user.id, pebble_id: user_5.id, active: true)
+        RockAndPebble.create(rock_id: user.id, pebble_id: user_6.id, active: true)
 
-        RockAndPebble.create(rock_id: 24, pebble_id: user_7.id, active: false)
-        RockAndPebble.create(rock_id: 24, pebble_id: user_5.id, active: true)
+        RockAndPebble.create(rock_id: user_1.id, pebble_id: user_7.id, active: false)
+        RockAndPebble.create(rock_id: user_1.id, pebble_id: user_5.id, active: true)
 
       result = PairedBeSchema.execute(query).as_json
 
