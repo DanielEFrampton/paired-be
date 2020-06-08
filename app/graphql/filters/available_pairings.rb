@@ -1,5 +1,3 @@
-require 'search_object'
-require 'search_object/plugin/graphql'
   class Filters::AvailablePairings
     # include SearchObject for GraphQL
     include SearchObject.module(:graphql)
