@@ -5,9 +5,9 @@ RSpec.describe Types::QueryType do
     it 'can query all available rocks' do
 
         #user_1 and user_2 should be returned in the query
-        user = create(:user, id: 23, mod: 2, program: "BE",  rock_opt_in: true)
-        user_1 = create(:user, id: 24, mod: 2, program: "BE", rock_opt_in: true)
-        user_2 = create(:user, id: 25, mod: 2, program: "BE", rock_opt_in: true)
+        user = create(:user, mod: 2, program: "BE",  rock_opt_in: true)
+        user_1 = create(:user, mod: 2, program: "BE", rock_opt_in: true)
+        user_2 = create(:user, mod: 2, program: "BE", rock_opt_in: true)
         user_3 = create(:user, mod: 2, program: "BE")
 
         user_4 = create(:user, mod: 3, program: "BE", rock_opt_in: true)
