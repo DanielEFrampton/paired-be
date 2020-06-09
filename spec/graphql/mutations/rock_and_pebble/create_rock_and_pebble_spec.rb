@@ -7,10 +7,10 @@ RSpec.describe 'create rp relationship', type: :request do
 
       @query = <<~GQL
                 mutation {
-                  rock_and_pebble: CreateRockPebbleRelationship(
+                  createRockPebbleRelationship(
                     input: {
-                      rock_id: #{@user_1.id}
-                      pebble_id: #{@user_2.id}
+                      rockId: #{@user_1.id}
+                      pebbleId: #{@user_2.id}
                     }
                   ){
                     id
@@ -26,7 +26,7 @@ RSpec.describe 'create rp relationship', type: :request do
       post '/graphql', params: {query: @query}
       result = JSON.parse(response.body)
       expect(RockAndPebble.count).to eq(1)
-      expect(RockAndPebble.last.id).to eq(result['id'])
+      expect(result["data"]["createRockPebbleRelationship"]["id"]).to eq(RockAndPebble.last.id.to_s)
     end
   end
 end
