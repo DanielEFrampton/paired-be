@@ -1,8 +1,8 @@
 module Mutations
   module RockAndPebbles
-    class CreateRockPebbleRelationship < ::Mutation::BaseMutation
-      argument :rock_id, required: true
-      argument :pebble_id, required: true
+    class CreateRockPebbleRelationship < ::Mutations::BaseMutation
+      argument :rock_id, ID, required: true
+      argument :pebble_id, ID, required: true
       type Types::RockAndPebbleType
 
       def resolve(attributes)
