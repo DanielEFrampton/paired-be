@@ -22,11 +22,12 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_available_pairings, resolver: Filters::AvailablePairings
+    field :find_available_rocks, resolver: Filters::AvailableRocks
+
     field :get_user_rock_and_pebble, Types::UserType, null: false, description: 'Returns rock and pebble relationships by user' do
       argument :id, ID, required: true
     end
-
-    field :get_available_pairings, resolver: Resolvers::AvailablePairings
 
     def get_user_pairings(id:)
       Pairing.where('pairer_id = ? OR pairee_id = ?', id, id)
