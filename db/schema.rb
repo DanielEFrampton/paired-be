@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_11_222150) do
+ActiveRecord::Schema.define(version: 2020_06_11_224423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2020_06_11_222150) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_outgoing_email_communications_on_user_id"
+  end
+
+  create_table "outgoing_sms_communications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.integer "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_outgoing_sms_communications_on_user_id"
   end
 
   create_table "pairings", force: :cascade do |t|
@@ -76,5 +85,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_222150) do
 
   add_foreign_key "interests", "users"
   add_foreign_key "outgoing_email_communications", "users"
+  add_foreign_key "outgoing_sms_communications", "users"
   add_foreign_key "skills", "users"
 end
