@@ -5,7 +5,7 @@ class RockPebbleMailer < ApplicationMailer
     @message = "#{name} has requested you as a Rock through the Rock and Pebble
                 feature on Paired.tech. Please visit #{paired_link} to accept or decline
                 this request."
-    mail(to: address, subject: "Someone has requested you as a Rock!")
+    mail_obj = mail(to: address, subject: "Someone has requested you as a Rock!")
   end
 
   def rock_accepted_message(info)
@@ -14,7 +14,7 @@ class RockPebbleMailer < ApplicationMailer
     @message = "#{name} has accepted your Rock request. Please use their contact
                 information provided in your Rock & Pebble dashboard at #{paired_link}
                 to get in touch with them and say Hi!"
-    mail(to: address, subject: "Your Rock request has been accepted!")
+    mail_obj = mail(to: address, subject: "Your Rock request has been accepted!")
   end
 
   def rock_denied_message(info)
@@ -24,7 +24,7 @@ class RockPebbleMailer < ApplicationMailer
     @message = "#{name} declined your Rock request. The reason
                 given was: #{reason}. Even though this request did not work out
                 please go to #{paired_link} and request someone else as your Rock!"
-    mail(to: address, subject: "Your Rock request was not accepted.")
+    mail_obj = mail(to: address, subject: "Your Rock request was not accepted.")
   end
 
   def pebble_relationship_discontinued(info)
@@ -36,7 +36,7 @@ class RockPebbleMailer < ApplicationMailer
                 any feedback that you may have (always be specific, actionable and kind!)
                 or just to say 'Thanks' for the time that they have shared with you. You can go
                 to #{paired_link} to sign up for a new Rock at any time!"
-    mail(to: address, subject: "Your Rock & Pebble relationship has come to an end.")
+    mail_obj = mail(to: address, subject: "Your Rock & Pebble relationship has come to an end.")
   end
 
   def rock_relationship_discontinued(info)
@@ -47,7 +47,7 @@ class RockPebbleMailer < ApplicationMailer
                 The reason given is: #{reason}. You can go to #{paired_link}
                 if you wish to opt out of being a Rock; otherwise you will
                 continue to be displayed on the list of available rocks."
-    mail(to: address, subject: "Your Rock & Pebble relationship has come to an end.")
+    mail_obj = mail(to: address, subject: "Your Rock & Pebble relationship has come to an end.")
   end
 
   def paired_link
