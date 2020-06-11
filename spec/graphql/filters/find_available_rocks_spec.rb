@@ -4,11 +4,11 @@ RSpec.describe Types::QueryType do
   describe 'display rocks' do
     it 'can query all available rocks' do
 
-        #user_1 and user_2 should be returned in the query
+        #user_1, user_2, and user_3 should be returned in the query
         user = create(:user, mod: 2, program: "BE",  rock_opt_in: true)
-        user_1 = create(:user, id: 34, mod: 2, program: "BE", rock_opt_in: true)
+        user_1 = create(:user, mod: 2, program: "BE", rock_opt_in: true)
         user_2 = create(:user, mod: 2, program: "BE", rock_opt_in: true)
-        user_3 = create(:user, id: 35, mod: 2, program: "BE", rock_opt_in: true)
+        user_3 = create(:user, mod: 2, program: "BE", rock_opt_in: true)
         user_8 = create(:user, mod: 2, program: "BE")
 
         user_4 = create(:user, mod: 3, program: "BE", rock_opt_in: true)
@@ -16,15 +16,17 @@ RSpec.describe Types::QueryType do
         user_6 = create(:user, mod: 3, program: "FE", rock_opt_in: true)
         user_7 = create(:user, mod: 4, program: "FE")
 
-        # creates a rock with two or more active pebbles
+        # creates a rock with two or more active pebbles - should not be returned
         RockAndPebble.create(rock_id: user.id, pebble_id: user_5.id, active: true)
         RockAndPebble.create(rock_id: user.id, pebble_id: user_6.id, active: true)
-        # creates a rock with one active and one inactive pebble.
+        RockAndPebble.create(rock_id: user.id, pebble_id: user_7.id, active: false)
+        # creates a rock with one active and one inactive pebble - should be returned
         RockAndPebble.create(rock_id: user_1.id, pebble_id: user_7.id, active: false)
         RockAndPebble.create(rock_id: user_1.id, pebble_id: user_5.id, active: true)
-        # creates rock with two inactive pebbles
+        # creates rock with two inactive pebbles - should be returned
         RockAndPebble.create(rock_id: user_3.id, pebble_id: user_5.id, active: false)
         RockAndPebble.create(rock_id: user_3.id, pebble_id: user_6.id, active: false)
+        RockAndPebble.create(rock_id: user_3.id, pebble_id: user_7.id, active: false)
 
       result = PairedBeSchema.execute(query).as_json
 
