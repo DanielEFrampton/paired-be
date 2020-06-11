@@ -6,4 +6,12 @@ class OutgoingSmsCommunication < ApplicationRecord
     :cancellation_message,
     :reminder_message
   ]
+
+  def self.type_map
+    {
+      initial_message: 1,
+      cancellation_message: 2,
+      reminder_message: 3
+    }
+  end
 end
