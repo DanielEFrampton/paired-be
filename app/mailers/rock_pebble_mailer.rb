@@ -6,6 +6,7 @@ class RockPebbleMailer < ApplicationMailer
                 feature on Paired.tech. Please visit #{paired_link} to accept or decline
                 this request."
     mail_obj = mail(to: address, subject: "Someone has requested you as a Rock!")
+    record_outgoing_message(address, mail_obj, 3)
   end
 
   def rock_accepted_message(info)
@@ -15,6 +16,7 @@ class RockPebbleMailer < ApplicationMailer
                 information provided in your Rock & Pebble dashboard at #{paired_link}
                 to get in touch with them and say Hi!"
     mail_obj = mail(to: address, subject: "Your Rock request has been accepted!")
+    record_outgoing_message(address, mail_obj, 4)
   end
 
   def rock_denied_message(info)
@@ -25,6 +27,7 @@ class RockPebbleMailer < ApplicationMailer
                 given was: #{reason}. Even though this request did not work out
                 please go to #{paired_link} and request someone else as your Rock!"
     mail_obj = mail(to: address, subject: "Your Rock request was not accepted.")
+    record_outgoing_message(address, mail_obj, 5)
   end
 
   def pebble_relationship_discontinued(info)
@@ -37,6 +40,7 @@ class RockPebbleMailer < ApplicationMailer
                 or just to say 'Thanks' for the time that they have shared with you. You can go
                 to #{paired_link} to sign up for a new Rock at any time!"
     mail_obj = mail(to: address, subject: "Your Rock & Pebble relationship has come to an end.")
+    record_outgoing_message(address, mail_obj, 6)
   end
 
   def rock_relationship_discontinued(info)
@@ -48,6 +52,7 @@ class RockPebbleMailer < ApplicationMailer
                 if you wish to opt out of being a Rock; otherwise you will
                 continue to be displayed on the list of available rocks."
     mail_obj = mail(to: address, subject: "Your Rock & Pebble relationship has come to an end.")
+    record_outgoing_message(address, mail_obj, 7)
   end
 
   def paired_link
