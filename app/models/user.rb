@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :pebbles, through: :pebble_roles
 
   has_many :outgoing_email_communications
+  has_many :outgoing_sms_communications
 
   def total_mentor_bookings
     Pairing.where('pairer_id = ? AND pairee_id IS NOT NULL', self.id).count
