@@ -7,6 +7,6 @@ class OutgoingEmailCommunication < ApplicationRecord
                        :rp_acceptance_message,
                        :rp_denial_message,
                        :pebble_discontinuation_message,
-                       :rock_disconinuation_message
+                       :rock_discontinuation_message
                      ]
 end
