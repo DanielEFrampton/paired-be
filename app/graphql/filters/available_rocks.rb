@@ -27,11 +27,15 @@ class Filters::AvailableRocks
       scope = User.all
       scope = scope.where('program LIKE ?', "%#{value[:program]}%") if value[:program]
       scope = scope.where('mod = ?', value[:module]) if value[:module]
-      scope = scope.where(rock_opt_in: true)
-      users = scope.left_outer_joins(:pebble_roles).where(rock_and_pebbles: { rock_id: nil } )
-      rocks_true = scope.left_outer_joins(:pebble_roles).where(rock_and_pebbles: {active: true}).group(:id).having('count(pebble_id) < 2')
+      scope = scope.where('users.rock_opt_in = true
+                  AND users.id NOT IN
+                  (SELECT users.id FROM users
+                  left outer join rock_and_pebbles on
+                  rock_and_pebbles.rock_id = users.id
+                  WHERE rock_and_pebbles.active = true
+                  GROUP BY users.id
+                  HAVING count(pebble_id) >= 2 )')
 
-      scope = users + rocks_true
       branches << scope
 
       value[:OR].reduce(branches) { |s, v| normalize_filters(v, s) } if value[:OR].present?
