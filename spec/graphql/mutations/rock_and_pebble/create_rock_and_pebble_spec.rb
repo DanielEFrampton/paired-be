@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'create rp relationship', type: :request do
+RSpec.describe 'create rp relationship', type: :request, :vcr do
   describe 'resolve' do
     before :each do
       @user_1 = create :user
@@ -7,10 +7,10 @@ RSpec.describe 'create rp relationship', type: :request do
 
       @query = <<~GQL
                 mutation {
-                  createRockPebbleRelationship(
+                  rock_and_pebble: CreateRockPebbleRelationship(
                     input: {
-                      rockId: #{@user_1.id}
-                      pebbleId: #{@user_2.id}
+                      rock_id: #{@user_1.id}
+                      pebble_id: #{@user_2.id}
                     }
                   ){
                     id
@@ -26,7 +26,7 @@ RSpec.describe 'create rp relationship', type: :request do
       post '/graphql', params: {query: @query}
       result = JSON.parse(response.body)
       expect(RockAndPebble.count).to eq(1)
-      expect(result["data"]["createRockPebbleRelationship"]["id"]).to eq(RockAndPebble.last.id.to_s)
+      expect(RockAndPebble.last.id).to eq(result['id'])
     end
   end
 end
