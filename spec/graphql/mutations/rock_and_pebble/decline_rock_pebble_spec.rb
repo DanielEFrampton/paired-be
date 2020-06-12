@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'decline rock and pebble relationship', type: :request do
+RSpec.describe 'decline rock and pebble relationship', type: :request, :vcr do
   describe 'resolve' do
     before :each do
       @user_1 = create :user
