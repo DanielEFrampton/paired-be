@@ -1,6 +1,6 @@
 require 'rails_helper'
-RSpec.describe 'create rp relationship', type: :request, :vcr do
-  describe 'resolve' do
+RSpec.describe 'create rp relationship', type: :request do
+  describe 'resolve', :vcr do
     before :each do
       @user_1 = create :user
       @user_2 = create :user
