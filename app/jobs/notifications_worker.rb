@@ -5,6 +5,7 @@ class NotificationsWorker < ActiveJob::Base
     phone_number = contact_info[:phone_number].to_s
     address = contact_info[:email_address]
     sms = SmsService.new.send_sms(phone_number, message)
+    OutgoingSmsCommunication.record(address, sms['response'], type)
     AppointmentNotif.send(type, address, message).deliver_now unless sms['response'] == 'success'
   end
 
