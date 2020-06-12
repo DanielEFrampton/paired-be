@@ -1,7 +1,7 @@
 class OutgoingSmsCommunication < ApplicationRecord
   belongs_to :user
 
-  enum type: [
+  enum message_type: [
     :initial_message,
     :cancellation_message,
     :reminder_message
@@ -14,7 +14,7 @@ class OutgoingSmsCommunication < ApplicationRecord
     create(
       user: user,
       status: status,
-      type: msg_type
+      message_type: msg_type
     )
   end
 
