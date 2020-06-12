@@ -14,5 +14,6 @@ module Types
     field :delete_user, mutation: Mutations::Users::DeleteUser
 
     field :decline_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::DeclineRockPebbleRelationship
+    field :activate_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::ActivateRockPebbleRelationship
   end
 end
