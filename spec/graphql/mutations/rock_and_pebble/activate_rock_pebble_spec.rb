@@ -50,7 +50,6 @@ RSpec.describe 'activate rock and pebble relationship', type: :request do
                         slack
                       }
                       active
-
                 }
                 }
             GQL
