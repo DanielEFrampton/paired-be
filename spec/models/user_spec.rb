@@ -21,6 +21,8 @@ RSpec.describe User, type: :model do
       it { should have_many(:pairers).through(:pairing_users) }
       it { should have_many :rock_roles }
       it { should have_many :pebble_roles }
+      it { should have_many :outgoing_sms_communications }
+      it { should have_many :outgoing_email_communications }
       it { should have_many(:pebbles).through(:pebble_roles)}
       it { should have_many(:rocks).through(:rock_roles)}
     end
