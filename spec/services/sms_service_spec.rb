@@ -16,9 +16,9 @@ feature SmsService do
         expect(response_1.class).to eq(Hash)
         expect(response_1['response']).to eq('success')
 
-        invalid_number = '12345'
+        contact_info[:phone_number] = '12345'
 
-        response_2 = SmsService.new.send_sms(invalid_number, message)
+        response_2 = SmsService.new.send_sms(contact_info, message, :initial_message)
 
         expect(response_2.class).to eq(Hash)
         expect(response_2['response']).to eq('Invalid request')
