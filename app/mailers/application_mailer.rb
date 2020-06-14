@@ -5,7 +5,7 @@ class ApplicationMailer < ActionMailer::Base
   def record_outgoing_message(recip_address, mail_obj, message_type)
     user = User.find_by(email: recip_address)
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    response = sg.client.mail._('send').post(request_body: mail.to_json)
+    response = sg.client.mail._('send').post(request_body: mail_obj.to_json)
 
     OutgoingEmailCommunication.create(
       user: user,
