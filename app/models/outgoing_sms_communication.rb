@@ -18,11 +18,4 @@ class OutgoingSmsCommunication < ApplicationRecord
     )
   end
 
-  def self.type_map
-    {
-      initial_message: 0,
-      cancellation_message: 1,
-      reminder_message: 2
-    }
-  end
 end
