@@ -5,7 +5,7 @@ class SmsService
     message_data = serialize_message_data(phone_number, message)
     response = send_request(message_data)
     response_body = JSON.parse(response.body)
-    OutgoingSmsCommunication.record(address, response_body['response'], type)
+    OutgoingSmsCommunication.create(address, response_body['response'], type)
     response_body
   end
 
