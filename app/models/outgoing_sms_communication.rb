@@ -7,11 +7,11 @@ class OutgoingSmsCommunication < ApplicationRecord
     :reminder_message
   ]
 
-  def self.record(recip_email, status, type)
+  def self.create(recip_email, status, type)
     user = User.find_by(email: recip_email)
-    msg_type = type_map[type]
+    msg_type = message_types[type]
 
-    create(
+    super(
       user: user,
       status: status,
       message_type: msg_type
