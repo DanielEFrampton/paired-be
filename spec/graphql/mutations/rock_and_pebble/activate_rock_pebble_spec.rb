@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'activate rock and pebble relationship', type: :request, :vcr do
+RSpec.describe 'activate rock and pebble relationship', type: :request do
     before :each do
             @user_1 = create :user
             @user_2 = create :user
@@ -8,7 +8,7 @@ RSpec.describe 'activate rock and pebble relationship', type: :request, :vcr do
             @relationship = RockAndPebble.first
     end
 
-    describe '.resolve' do
+    describe '.resolve', :vcr do
         it 'switches the active status of the relationship to true and send rock accepted email' do
             expect(RockAndPebble.count).to eq(1)
             expect(@relationship.active).to eq(false)
