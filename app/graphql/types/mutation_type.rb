@@ -15,5 +15,7 @@ module Types
 
     field :decline_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::DeclineRockPebbleRelationship
     field :discontinue_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::DiscontinueRockPebbleRelationship
+    field :create_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::CreateRockPebbleRelationship
+    field :activate_rock_pebble_relationship, mutation: Mutations::RockAndPebbles::ActivateRockPebbleRelationship
   end
 end
