@@ -7,7 +7,6 @@ module Mutations
         type Types::RockAndPebbleType
 
         def resolve(attributes)
-          # require 'pry', binding.pry
           rock_and_pebble = RockAndPebble.find(attributes[:id])
           send_pebble_email(rock_and_pebble, attributes)
 
