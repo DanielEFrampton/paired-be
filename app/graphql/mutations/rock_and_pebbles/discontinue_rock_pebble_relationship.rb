@@ -7,7 +7,6 @@ module Mutations
         type Types::RockAndPebbleType
 
         def resolve(attributes)
-          # require 'pry', binding.pry
           rock_and_pebble = RockAndPebble.find(attributes[:id])
           send_pebble_email(rock_and_pebble, attributes)
 
@@ -18,14 +17,11 @@ module Mutations
         private
 
         def send_pebble_email(rock_and_pebble, attributes)
-          user = User.find(attributes[:user_id])
-          if user.id == rock_and_pebble.rock_id
-            reason = attributes[:reason]
-            info = rock_and_pebble.rock_pebble_info
+          reason = attributes[:reason]
+          info = rock_and_pebble.rock_pebble_info
+          if attributes[:user_id] == rock_and_pebble.rock_id
             NotificationsWorker.rock_pebble_message(info, reason, :rock_relationship_discontinued)
           else
-            reason = attributes[:reason]
-            info = rock_and_pebble.rock_pebble_info
             NotificationsWorker.rock_pebble_message(info, reason, :pebble_relationship_discontinued)
           end
         end
