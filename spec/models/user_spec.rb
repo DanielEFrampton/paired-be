@@ -43,8 +43,8 @@ RSpec.describe User, type: :model do
         @rock_and_pebble = RockAndPebble.last
       end 
       it 'should return active pebbles and rocks' do
-        expect(User.active_pebbles(@user_1.id)).to eq([@user_3])
-        expect(User.active_rocks(@user_1.id)).to eq([@user_4])
+        expect(@user_1.active_pebbles).to eq([@user_3])
+        expect(@user_1.active_rocks).to eq([@user_4])
       end 
     end 
 end

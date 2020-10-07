@@ -9,12 +9,12 @@ module Types
 
     def my_rocks
       user = User.find(object.pebble_id)
-      User.active_rocks(user.id)
+      user.active_rocks
     end
 
     def my_pebbles
       user = User.find(object.rock_id)
-      User.active_pebbles(user.id)
+      user.active_pebbles
     end
 
     def rock 

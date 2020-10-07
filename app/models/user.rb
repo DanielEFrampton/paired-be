@@ -39,15 +39,15 @@ class User < ApplicationRecord
     pairees.uniq
   end
 
-  def self.active_pebbles(id)
-  where('users.id IN (SELECT rock_and_pebbles.pebble_id FROM users join rock_and_pebbles
+  def active_pebbles
+    User.where('users.id IN (SELECT rock_and_pebbles.pebble_id FROM users join rock_and_pebbles
          on rock_and_pebbles.rock_id = users.id WHERE rock_and_pebbles.active = true AND 
          rock_and_pebbles.rock_id = ?)', id)
   end 
 
-  def self.active_rocks(id)
-    where('users.id IN (SELECT rock_and_pebbles.rock_id FROM users join rock_and_pebbles
-    on rock_and_pebbles.rock_id = users.id WHERE rock_and_pebbles.active = true AND 
-    rock_and_pebbles.pebble_id = ?)', id)
+  def active_rocks
+    User.where('users.id IN (SELECT rock_and_pebbles.rock_id FROM users join rock_and_pebbles
+         on rock_and_pebbles.rock_id = users.id WHERE rock_and_pebbles.active = true AND 
+         rock_and_pebbles.pebble_id = ?)', id)
   end 
 end
