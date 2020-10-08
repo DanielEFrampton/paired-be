@@ -7,6 +7,7 @@ RSpec.describe 'decline rock and pebble relationship', type: :request do
       @user_2 = create :user
       @user_3 = create :user
       @user_1.pebbles << [@user_2, @user_3]
+      RockAndPebble.last.update(active: true)
       @rock_and_pebble = RockAndPebble.first
       @query = <<~GQL
                 mutation {

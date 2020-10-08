@@ -26,4 +26,25 @@ RSpec.describe User, type: :model do
       it { should have_many(:pebbles).through(:pebble_roles)}
       it { should have_many(:rocks).through(:rock_roles)}
     end
+
+    describe 'methods' do
+      before :each do 
+        @user_1 = create :user
+        @user_2 = create :user 
+        @user_3 = create :user 
+        @user_4 = create :user 
+        @user_5 = create :user 
+        @user_4.pebbles << @user_1
+        @user_5.pebbles << @user_1
+        @user_1.pebbles << [@user_2, @user_3]
+  
+        RockAndPebble.all[3].update(active: true)
+        RockAndPebble.all[0].update(active: true)
+        @rock_and_pebble = RockAndPebble.last
+      end 
+      it 'should return active pebbles and rocks' do
+        expect(@user_1.active_pebbles).to eq([@user_3])
+        expect(@user_1.active_rocks).to eq([@user_4])
+      end 
+    end 
 end

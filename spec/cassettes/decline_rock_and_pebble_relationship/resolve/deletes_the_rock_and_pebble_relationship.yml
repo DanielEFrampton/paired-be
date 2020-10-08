@@ -10,14 +10,14 @@ http_interactions:
         content=\"text/html; charset=utf-8\" /\u003e\r\n    \u003clink href=\"https://fonts.googleapis.com/css?family=Oswald\u0026display=swap\"
         rel=\"stylesheet\"\u003e\r\n    \u003cstyle\u003e\r\n      /* Email styles
         need to be inline */\r\n    \u003c/style\u003e\r\n  \u003c/head\u003e\r\n\r\n  \u003cbody\u003e\r\n    \u003ch1
-        style=\"font-family: ''Oswald''; text-color:#525b86;\" width=\"250\"\u003ePaired\u003c/h1\u003e\r\nBen
-        D. Fender declined your Rock request. The reason\r\n                given
-        was: I\u0026#39;m too busy right now. Sorry.. Even though this request did
-        not work out\r\n                please go to https://www.paired.tech and request
+        style=\"font-family: ''Oswald''; text-color:#525b86;\" width=\"250\"\u003ePaired\u003c/h1\u003e\r\nHeather
+        N. Yonn declined your Rock request. The reason\r\n                given was:
+        I\u0026#39;m too busy right now. Sorry.. Even though this request did not
+        work out\r\n                please go to https://www.paired.tech and request
         someone else as your Rock!\r\n\r\n\u003cp\u003eSincerely, \u003cbr\u003eThe
-        Paired Team\u003c/p\u003e\r\n\r\n\r\n  \u003c/body\u003e\r\n\u003c/html\u003e\r\n","ascii_only":true,"encoding":"7bit"},"body_raw":null,"separate_parts":false,"text_part":null,"html_part":null,"errors":null,"header":[{"name":"From","unparsed_value":"no_reply@paired.tech","charset":"UTF-8","field_order_id":10,"field":{"charset":"UTF-8","name":"From","length":null,"element":null,"value":"no_reply@paired.tech","address_list":{"addresses":[{"parsed":true,"data":{"raw":"no_reply@paired.tech","domain":"paired.tech","comments":[],"local":"no_reply","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"To","unparsed_value":"marco_halvorson@heaney.name","charset":"UTF-8","field_order_id":13,"field":{"charset":"UTF-8","name":"To","length":null,"element":null,"value":"marco_halvorson@heaney.name","address_list":{"addresses":[{"parsed":true,"data":{"raw":"marco_halvorson@heaney.name","domain":"heaney.name","comments":[],"local":"marco_halvorson","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"Subject","unparsed_value":"Your
+        Paired Team\u003c/p\u003e\r\n\r\n\r\n  \u003c/body\u003e\r\n\u003c/html\u003e\r\n","ascii_only":true,"encoding":"7bit"},"body_raw":null,"separate_parts":false,"text_part":null,"html_part":null,"errors":null,"header":[{"name":"From","unparsed_value":"no_reply@paired.tech","charset":"UTF-8","field_order_id":10,"field":{"charset":"UTF-8","name":"From","length":null,"element":null,"value":"no_reply@paired.tech","address_list":{"addresses":[{"parsed":true,"data":{"raw":"no_reply@paired.tech","domain":"paired.tech","comments":[],"local":"no_reply","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"To","unparsed_value":"francoise@mclaughlin.co","charset":"UTF-8","field_order_id":13,"field":{"charset":"UTF-8","name":"To","length":null,"element":null,"value":"francoise@mclaughlin.co","address_list":{"addresses":[{"parsed":true,"data":{"raw":"francoise@mclaughlin.co","domain":"mclaughlin.co","comments":[],"local":"francoise","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"Subject","unparsed_value":"Your
         Rock request was not accepted.","charset":"UTF-8","field_order_id":19,"field":{"charset":"UTF-8","errors":[],"name":"Subject","length":null,"element":null,"value":"Your
-        Rock request was not accepted."}},{"name":"Mime-Version","unparsed_value":"1.0","charset":"UTF-8","field_order_id":22,"field":{"charset":"UTF-8","name":"Mime-Version","length":null,"element":{"major":"1","minor":"0"},"value":"1.0"}},{"name":"Content-Type","unparsed_value":"text/html","charset":"UTF-8","field_order_id":23,"field":{"charset":"UTF-8","main_type":"text","sub_type":null,"parameters":{"charset":"UTF-8"},"name":"Content-Type","length":null,"element":{"main_type":"text","sub_type":"html","parameters":[]},"value":"text/html"}}],"charset":"UTF-8","defaulted_charset":false,"smtp_envelope_from":null,"smtp_envelope_to":null,"perform_deliveries":true,"raise_delivery_errors":true,"delivery_handler":{"abstract":false,"action_methods":["rock_accepted_message","rock_denied_message","pebble_relationship_discontinued","rock_relationship_discontinued","paired_link","confirmation_message","record_outgoing_message"],"mailer_name":"rock_pebble_mailer","parent_name":null,"_prefixes":["rock_pebble_mailer","application_mailer"],"view_context_class":{},"_config":{}},"delivery_method":{"settings":{}},"transport_encoding":{},"mark_for_delete":false,"raw_source":""}'
+        Rock request was not accepted."}},{"name":"Mime-Version","unparsed_value":"1.0","charset":"UTF-8","field_order_id":22,"field":{"charset":"UTF-8","name":"Mime-Version","length":null,"element":{"major":"1","minor":"0"},"value":"1.0"}},{"name":"Content-Type","unparsed_value":"text/html","charset":"UTF-8","field_order_id":23,"field":{"charset":"UTF-8","main_type":"text","sub_type":null,"parameters":{"charset":"UTF-8"},"name":"Content-Type","length":null,"element":{"main_type":"text","sub_type":"html","parameters":[]},"value":"text/html"}}],"charset":"UTF-8","defaulted_charset":false,"smtp_envelope_from":null,"smtp_envelope_to":null,"perform_deliveries":true,"raise_delivery_errors":true,"delivery_handler":{"abstract":false,"action_methods":["rock_accepted_message","paired_link","rock_denied_message","pebble_relationship_discontinued","rock_relationship_discontinued","confirmation_message","record_outgoing_message"],"mailer_name":"rock_pebble_mailer","parent_name":null,"_prefixes":["rock_pebble_mailer","application_mailer"],"view_context_class":{},"_config":{}},"delivery_method":{"settings":{}},"transport_encoding":{},"mark_for_delete":false,"raw_source":""}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -26,22 +26,22 @@ http_interactions:
       User-Agent:
       - sendgrid/6.1.0;ruby
       Authorization:
-      - Bearer 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
+      - 'Bearer '
       Content-Type:
       - application/json
   response:
     status:
-      code: 400
-      message: Bad Request
+      code: 401
+      message: Unauthorized
     headers:
       Server:
       - nginx
       Date:
-      - Fri, 12 Jun 2020 23:02:09 GMT
+      - Wed, 30 Sep 2020 20:01:08 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '980'
+      - '88'
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -56,14 +56,7 @@ http_interactions:
       - https://sendgrid.com/docs/Classroom/Basics/API/cors.html
     body:
       encoding: UTF-8
-      string: '{"errors":[{"message":"The from object must be provided for every email
-        send. It is an object that requires the email parameter, but may also contain
-        a name parameter.  e.g. {\"email\" : \"example@example.com\"}  or {\"email\"
-        : \"example@example.com\", \"name\" : \"Example Recipient\"}.","field":"from.email","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#message.from"},{"message":"The
-        personalizations field is required and must have at least one personalization.","field":"personalizations","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#-Personalizations-Errors"},{"message":"Unless
-        a valid template_id is provided, the content parameter is required. There
-        must be at least one defined content block. We typically suggest both text/plain
-        and text/html blocks are included, but only one block is required.","field":"content","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#message.content"}]}'
+      string: '{"errors":[{"message":"Permission denied, wrong credentials","field":null,"help":null}]}'
     http_version: null
-  recorded_at: Fri, 12 Jun 2020 23:02:09 GMT
+  recorded_at: Wed, 30 Sep 2020 20:01:08 GMT
 recorded_with: VCR 5.1.0

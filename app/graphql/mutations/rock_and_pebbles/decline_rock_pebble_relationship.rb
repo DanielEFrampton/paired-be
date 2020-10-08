@@ -10,6 +10,7 @@ module Mutations
         send_pebble_email(rock_and_pebble, attributes)
 
         rock_and_pebble.destroy
+        rock_and_pebble
       end
 
       private
