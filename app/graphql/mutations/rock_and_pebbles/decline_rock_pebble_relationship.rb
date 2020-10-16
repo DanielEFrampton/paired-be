@@ -7,7 +7,7 @@ module Mutations
       type Types::RockAndPebbleType
 
       def resolve(attributes)
-        rock_and_pebble = RockAndPebble.where(rock_id: attributes[:rock_id]).where(pebble_id: attributes[pebble_id]).where(pending: false)
+        rock_and_pebble = RockAndPebble.where(rock_id: attributes[:rock_id]).where(pebble_id: attributes[:pebble_id]).where(pending: false).first
         send_pebble_email(rock_and_pebble, attributes)
 
         rock_and_pebble.destroy
