@@ -14,7 +14,7 @@ Pairing.destroy_all
 RockAndPebble.destroy_all
 
 30.times do
-  new_user = create(:user)
+  new_user = create(:user_random_opt_in)
   rand(1..3).times do
     create(:skill, user: new_user )
   end

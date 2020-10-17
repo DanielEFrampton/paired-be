@@ -5,7 +5,7 @@ module Mutations
 RSpec.describe UpdateUserOptinStatus, type: :request do
   describe '.resolve' do
     it "updates a user's opt-in status" do
-      @rachel = create(:user, id: 1, name: "Rachel Lew", mod: "4")
+      @rachel = create(:user, name: "Rachel Lew", program: 'BE', mod: "4")
 
       result = PairedBeSchema.execute(get_query).as_json
       expect(result["data"]["getUser"]["name"]).to eq("Rachel Lew")
@@ -31,7 +31,7 @@ RSpec.describe UpdateUserOptinStatus, type: :request do
     def get_query
       <<~GQL
       {
-        getUser(id: "1") {
+        getUser(id: "#{@rachel.id}") {
           name
           program
           module
