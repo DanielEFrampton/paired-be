@@ -9,7 +9,7 @@ module Types
       field :pending_pebbles, [Types::UserType], null: true
 
     def my_rocks
-      user = User.find(object.rock_id)
+      user = User.find(object.pebble_id)
       user.active_rocks
     end
 
