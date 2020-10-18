@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'pry'
+
 RSpec.describe 'decline rock and pebble relationship', type: :request do
   describe 'resolve', :vcr do
     before :each do
@@ -7,9 +7,10 @@ RSpec.describe 'decline rock and pebble relationship', type: :request do
       @user_2 = create :user
       @user_3 = create :user
       @user_1.pebbles << [@user_2, @user_3]
-      RockAndPebble.last.update(active: true)
-      RockAndPebble.first.update(pending: false)
-      @rock_and_pebble = RockAndPebble.first
+      RockAndPebble.last.update(active: false, pending: true)
+      RockAndPebble.first.update(active: true, pending: false)
+      @rock_and_pebble = RockAndPebble.last
+
       @query = <<~GQL
                 mutation {
                   rock_and_pebble: declineRockPebbleRelationship(
@@ -53,7 +54,8 @@ RSpec.describe 'decline rock and pebble relationship', type: :request do
       post '/graphql', params: {query: @query}
       result = JSON.parse(response.body)["data"]["rock_and_pebble"]
       expect(result['myRocks']).to be_empty
-      expect(result['myPebbles'].first["name"]).to eq("#{@user_3.name}")
+      expect(result['myPebbles'].first["name"]).to eq("#{@user_2.name}")
+      expect(result['pendingPebbles']).to be_empty
       expect(RockAndPebble.count).to eq(1)
     end
   end
