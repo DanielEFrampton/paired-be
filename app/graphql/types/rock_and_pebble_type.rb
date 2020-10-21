@@ -6,6 +6,7 @@ module Types
       field :active, Boolean, null: false
       field :my_rocks, [Types::UserType], null: true
       field :my_pebbles, [Types::UserType], null: true
+      field :pending_pebbles, [Types::UserType], null: true
 
     def my_rocks
       user = User.find(object.pebble_id)
@@ -15,6 +16,11 @@ module Types
     def my_pebbles
       user = User.find(object.rock_id)
       user.active_pebbles
+    end
+
+    def pending_pebbles
+      user = User.find(object.rock_id)
+      user.pending_pebbles
     end
 
     def rock 
