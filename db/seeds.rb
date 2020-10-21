@@ -43,19 +43,21 @@ end
 # Test user integrated into seed data for faster manual integration testing.
 # There is a real Github account associated with this address with a real Firebase ID.
 # Firebase ID is associated with the staging area Firebase account, won't work in production repo.
-all_users = User.all # for sampling below
 test_user = create(:user, email: 'landslideappteam@gmail.com', firebase_id: 'STgm6VyJm9eGV2ZgARQ2j5lusWG3')
 create_list(:skill_from_dropdown, 2, user: test_user)
 create(:skill, user: test_user)
+all_users = User.where.not(id: test_user.id) # for sampling below
 # for View Schedule
-create_list(:pairing_with_notes, 3, pairer: test_user, pairee: all_users.sample) # Giving Help
-create_list(:pairing_with_notes, 3, pairer: all_users.sample, pairee: test_user) # Receiving Help
+3.times { create(:pairing_with_notes, pairer: test_user, pairee: all_users.sample) } # Giving Help
+3.times { create(:pairing_with_notes, pairer: all_users.sample, pairee: test_user) } # Receiving Help
 create_list(:pairing, 10, pairer: test_user, pairee: nil) # Open to Pair
 # for testing stats pages
-create_list(:past_pairing, 5, pairee: all_users.sample, pairer: test_user)
-create_list(:past_pairing, 5, pairer: all_users.sample, pairee: test_user)
-# for testing rock and pebble
-create(:rock_and_pebble, rock: test_user, pebble: all_users.sample, active: false)
-create(:rock_and_pebble, rock: test_user, pebble: all_users.sample, active: true)
-# create(:rock_and_pebble, rock: all_users.sample, pebble: test_user, active: true)
-# create(:rock_and_pebble, rock: all_users.sample, pebble: test_user, active: false)
+5.times { create(:past_pairing, pairee: all_users.sample, pairer: test_user) }
+5.times { create(:past_pairing, pairer: all_users.sample, pairee: test_user) }
+# for testing user's pebbles
+create(:rock_and_pebble, rock: test_user, pebble: all_users.sample, active: false, pending: false)
+create(:rock_and_pebble, rock: test_user, pebble: all_users.sample, active: false, pending: true)
+create(:rock_and_pebble, rock: test_user, pebble: all_users.sample, active: true, pending: false)
+# for testing user's rocks
+create(:rock_and_pebble, rock: all_users.sample, pebble: test_user, active: true, pending: false)
+create(:rock_and_pebble, rock: all_users.sample, pebble: test_user, active: false, pending: false)
