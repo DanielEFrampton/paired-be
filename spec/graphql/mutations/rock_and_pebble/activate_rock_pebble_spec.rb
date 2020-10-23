@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'pry'
+
 RSpec.describe 'activate rock and pebble relationship', type: :request do
     before :each do
             @user_1 = create :user
