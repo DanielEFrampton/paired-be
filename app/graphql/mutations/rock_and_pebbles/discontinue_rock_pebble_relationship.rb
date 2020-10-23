@@ -22,9 +22,9 @@ module Mutations
           reason = attributes[:reason]
           info = rock_and_pebble.rock_pebble_info
           if attributes[:userRelationship] == 'pebble'
-            NotificationsWorker.rock_pebble_message(info, reason, :rock_relationship_discontinued)
-          else
             NotificationsWorker.rock_pebble_message(info, reason, :pebble_relationship_discontinued)
+          else
+            NotificationsWorker.rock_pebble_message(info, reason, :rock_relationship_discontinued)
           end
         end
       end

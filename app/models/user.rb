@@ -58,7 +58,7 @@ class User < ApplicationRecord
   end 
 
   def pending_rocks
-    User.where('users.id IN (SELECT rock_and_pebbles.pebble_id FROM users join rock_and_pebbles
+    User.where('users.id IN (SELECT rock_and_pebbles.rock_id FROM users join rock_and_pebbles
       on rock_and_pebbles.rock_id = users.id WHERE rock_and_pebbles.pending = true AND 
       rock_and_pebbles.pebble_id = ?)', id)
   end 
