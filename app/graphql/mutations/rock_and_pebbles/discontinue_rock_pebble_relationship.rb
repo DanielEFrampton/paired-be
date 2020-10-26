@@ -21,7 +21,7 @@ module Mutations
         def send_pebble_email(rock_and_pebble, attributes)
           reason = attributes[:reason]
           info = rock_and_pebble.rock_pebble_info
-          if attributes[:userRelationship] == 'pebble'
+          if attributes[:user_relationship] == 'pebble'
             NotificationsWorker.rock_pebble_message(info, reason, :pebble_relationship_discontinued)
           else
             NotificationsWorker.rock_pebble_message(info, reason, :rock_relationship_discontinued)
