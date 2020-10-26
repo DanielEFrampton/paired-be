@@ -46,7 +46,7 @@ class RockPebbleMailer < ApplicationMailer
   def rock_relationship_discontinued(info)
     address = info[:rock_email]
     reason = info[:reason]
-    name = info[:rock_name]
+    name = info[:pebble_name]
     @message = "#{name} has decided to end your Rock and Pebble relationship.
                 The reason given is: #{reason}. You can go to #{paired_link}
                 if you wish to opt out of being a Rock; otherwise you will
