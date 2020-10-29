@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 RSpec.describe 'create rp relationship', type: :request do
   describe 'resolve', :vcr do
     before :each do
@@ -13,12 +14,48 @@ RSpec.describe 'create rp relationship', type: :request do
                       pebbleId: #{@user_2.id}
                     }
                   ){
-                    id
-                    rock { id }
-                    pebble { id }
+                    myRocks {
+                          name
+                          module
+                          program
+                          id
+                          pronouns
+                          skills
+                          slack
+                          image
+                        }
+                        myPebbles {
+                          name
+                          module
+                          program
+                          id
+                          pronouns
+                          skills
+                          slack
+                          image
+                        }
+                        pendingPebbles {
+                          name
+                          module
+                          program
+                          id
+                          pronouns
+                          skills
+                          slack
+                          image
+                        } 
+                        pendingRocks {
+                          name
+                          module
+                          program
+                          id
+                          pronouns
+                          skills
+                          slack
+                          image
+                        } 
                   }
                 }
-
               GQL
     end
 
@@ -26,7 +63,10 @@ RSpec.describe 'create rp relationship', type: :request do
       post '/graphql', params: {query: @query}
       result = JSON.parse(response.body)
       expect(RockAndPebble.count).to eq(1)
-      expect(result['data']['createRockPebbleRelationship']['id']).to eq(RockAndPebble.last.id.to_s)
+      rock_and_pebble = RockAndPebble.first
+      expect(rock_and_pebble.pending).to eq(true)
+      expect(result['data']['createRockPebbleRelationship']['pendingRocks'][0]['id']).to eq(@user_1.id.to_s)
+      expect(result['data']['createRockPebbleRelationship']['myRocks']).to be_empty
     end
   end
 end

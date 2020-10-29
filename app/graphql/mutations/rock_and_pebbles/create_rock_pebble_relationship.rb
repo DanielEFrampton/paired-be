@@ -3,7 +3,7 @@ module Mutations
     class CreateRockPebbleRelationship < ::Mutations::BaseMutation
       argument :rock_id, ID, required: true
       argument :pebble_id, ID, required: true
-      type Types::RockAndPebbleType
+      type Types::UserType
 
       def resolve(attributes)
         new_rp = RockAndPebble.create(
@@ -12,7 +12,7 @@ module Mutations
         )
 
         send_confirmation_email(new_rp)
-        return new_rp 
+        User.find_by(id: attributes[:pebble_id])
       end
 
       private
