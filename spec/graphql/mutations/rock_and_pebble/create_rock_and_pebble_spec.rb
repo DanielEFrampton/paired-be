@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 RSpec.describe 'create rp relationship', type: :request do
   describe 'resolve', :vcr do
     before :each do
