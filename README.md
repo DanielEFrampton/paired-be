@@ -32,12 +32,12 @@ Paired 2.0's dev team:
  - Rebecca Robran ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
 
 Rock & Pebble feature's dev team:
- - Rebecca Robran ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
- - Rachel Lew ([@rlew421](https://github.com/rlew421), [LinkedIn](https://www.linkedin.com/in/rlew/))
- - Matt Simon ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
- - Linda Le ([@linda-le1](https://github.com/linda-le1), [LinkedIn](https://www.linkedin.com/in/linda-lewang/))
- - Daniel Frampton ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
- - Caleb Haizlett ([@CHaiz15](https://github.com/CHaiz15), [LinkedIn](https://www.linkedin.com/in/caleb-haizlett/))
+ - Rebecca Robran, BE/FE ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+ - Rachel Lew, BE ([@rlew421](https://github.com/rlew421), [LinkedIn](https://www.linkedin.com/in/rlew/))
+ - Matt Simon, BE ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
+ - Linda Le, BE ([@linda-le1](https://github.com/linda-le1), [LinkedIn](https://www.linkedin.com/in/linda-lewang/))
+ - Daniel Frampton, BE/FE ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Caleb Haizlett, FE ([@CHaiz15](https://github.com/CHaiz15), [LinkedIn](https://www.linkedin.com/in/caleb-haizlett/))
 
 ## Description
 
@@ -49,9 +49,9 @@ Paired 2.0 was built by a team of students in Turing's Back-End Engineering prog
 
 ## Rock & Pebble Feature
 
-The Rock & Pebble feature adds the ability for Paired users to offer to be peer mentors, search for and request peer mentors, and manage their mentors/mentees. By doing so we hope to support a grassroots tradition at Turing of upper-module students ("rocks") being partnered with lower-module students ("pebbles") to support their journey. 
+The Rock & Pebble feature adds the ability for Paired users to offer to be peer mentors, search for and request peer mentors, and manage their mentors/mentees. Building on the previous 2.0 work, it sends descriptive email notifications throughout the process.  By adding this feature we hope to support a grassroots tradition at Turing of upper-module students ("rocks") being partnered with lower-module students ("pebbles") to support their journey. 
 
-The Rock & Pebble feature was developed by a group of 1909 back-end and front-end graduates, some from the original dev team and some new contributors.
+The Rock & Pebble feature was developed over the course of 2020 by a group of 1909 back-end and front-end graduates, some from the original dev team and some new contributors.
 
 ## Agile Development
 
