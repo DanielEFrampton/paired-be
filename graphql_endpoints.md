@@ -728,3 +728,500 @@ Our GraphQL endpoints fall into three categories: queries, mutations, and filter
     }
   }
   ```
+   # Rock And Pebble Queries and Mutations
+ 
+  1. **getUserRocksAndPebble(id)**  *Returns all Rock and Pebble relationships by User*
+  * Example Query
+```
+getUserRockAndPebble(id: "${id}") {
+      myRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      myPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      pendingPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+      pendingRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }  
+    }
+  }
+  ``` 
+  * Example Response
+  ```json
+  {
+  "data": {
+    "getUserRockAndPebble": {
+      "myRocks": [
+        {
+          "name": "Kenny Penny",
+          "module": "5",
+          "program": "BE",
+          "id": "4",
+          "pronouns": "she/her",
+          "skills": [
+            "Chad Terbocks",
+            "Walter Melon",
+            "Bob Ng"
+          ],
+          "slack": "Olive Hoyl",
+          "image": "https://loremflickr.com/300/300"
+        }
+      ],
+      "myPebbles": [
+        {
+          "name": "Frank Furter",
+          "module": "2",
+          "program": "BE",
+          "id": "3",
+          "pronouns": "She/her",
+          "skills": [
+            "Ferris Wheeler",
+            "Hilda Climb",
+            "Woody Forrest",
+            "Seymour Legg"
+          ],
+          "slack": "Cole Kutz",
+          "image": "https://loremflickr.com/300/300"
+        }
+      ],
+      "pendingPebbles": [],
+      "pendingRocks": []
+    }
+  }
+}
+```
+2. **rockOptInOut(id)**  *Allows a user to opt in or out of being available as a Rock*
+  * Example Query
+```
+mutation {
+    updateUserOptinStatus(
+      input: {
+        id: "1"
+      })
+      {
+        rockOptIn
+    }
+  }
+``` 
+  * Example Response
+```json
+{
+  "data": {
+    "updateUserOptinStatus": {
+      "rockOptIn": false
+    }
+  }
+}
+```
+3. **createRockPebbleRelationship(rock, pebble)**  *Creates initial Rock and Pebble Relationship*
+  * Example Query
+```
+mutation {
+    createRockPebbleRelationship(
+      input: {
+        rockId: "1"
+        pebbleId: "4"
+      })
+    {
+      myRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      myPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      pendingPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+      pendingRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+    }
+  }
+```
+  * Example Response
+```json
+{
+  "data": {
+    "createRockPebbleRelationship": {
+      "myRocks": [],
+      "myPebbles": [
+        {
+          "name": "Becky Simpson",
+          "module": "4",
+          "program": "BE",
+          "id": "11",
+          "pronouns": "",
+          "skills": [
+            "grid",
+            "flexbox",
+            "Graphql "
+          ],
+          "slack": "3srtr4",
+          "image": "https://avatars1.githubusercontent.com/u/52762517?v=4"
+        }
+      ],
+      "pendingPebbles": [],
+      "pendingRocks": [
+        {
+          "name": "Sarah Clarkson",
+          "module": "5",
+          "program": "BE",
+          "id": "14",
+          "pronouns": "",
+          "skills": [
+            "grid",
+            "flexbox",
+            "Graphql "
+          ],
+          "slack": "som342",
+          "image": "https://avatars1.githubusercontent.com/u/52762517?v=4"
+        }
+      ]
+    }
+  }
+}
+```
+4. **activateRockPebbleRelationship(rock, pebble)**  *Activates a Rock and Pebble Relationship once a Rock accepts*
+  * Example Query
+```
+mutation {
+    activateRockPebbleRelationship(
+      input: {
+        rockId: "1"
+        pebbleId: "4"
+      })
+    {
+      myRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      myPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      pendingPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+      pendingRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+    }
+  }
+``` 
+  * Example Response
+```json
+{
+  "data": {
+    "activateRockPebbleRelationship": {
+      "myRocks": [
+       {
+          "name": "Sarah Clarkson",
+          "module": "5",
+          "program": "BE",
+          "id": "14",
+          "pronouns": "",
+          "skills": [
+            "grid",
+            "flexbox",
+            "Graphql "
+          ],
+          "slack": "som342",
+          "image": "https://avatars1.githubusercontent.com/u/52762517?v=4"
+        }
+      ],
+      "myPebbles": [
+        {
+          "name": "Becky Simpson",
+          "module": "4",
+          "program": "BE",
+          "id": "11",
+          "pronouns": "",
+          "skills": [
+            "grid",
+            "flexbox",
+            "Graphql "
+          ],
+          "slack": "3srtr4",
+          "image": "https://avatars1.githubusercontent.com/u/52762517?v=4"
+        }
+      ],
+      "pendingPebbles": [],
+      "pendingRocks": []
+    }
+  }
+}
+```
+5. **declineRockPebbleRelationship(rock, pebble)**  *Destroys a Rock and Pebble Relationship if a Rock declines relationship*
+  * Example Query
+```
+mutation {
+    declineRockPebbleRelationship(
+      input: {
+        rockId: "1"
+        pebbleId: "4"
+        reason: "I no longer wish to be available as a rock."
+      })
+    {
+      myRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      myPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      pendingPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+      pendingRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+    }
+  }
+``` 
+  * Example Response
+```json
+{
+  "data": {
+    "declineRockPebbleRelationship": {
+      "myRocks": [],
+      "myPebbles": [
+        {
+          "name": "Becky Simpson",
+          "module": "4",
+          "program": "BE",
+          "id": "11",
+          "pronouns": "",
+          "skills": [
+            "grid",
+            "flexbox",
+            "Graphql "
+          ],
+          "slack": "3srtr4",
+          "image": "https://avatars1.githubusercontent.com/u/52762517?v=4"
+        }
+      ],
+      "pendingPebbles": [],
+      "pendingRocks": []
+    }
+  }
+}
+```
+  6. **findAvailableRocks**  *Searches for Rocks that are opted in to the program by program and module*
+  * Example Query
+```
+{
+    findAvailableRocks(filter: { program: "BE", module: 5}) {
+      name
+      module
+      program
+      id
+      pronouns
+      skills
+      slack
+      image
+    }
+  }
+``` 
+  * Example Response
+```json
+{
+  "data": {
+    "findAvailableRocks": [
+      {
+        "name": "Kenny Penny",
+        "module": "5",
+        "program": "BE",
+        "id": "4",
+        "pronouns": "she/her",
+        "skills": [
+          "Chad Terbocks",
+          "Walter Melon",
+          "Bob Ng"
+        ],
+        "slack": "Olive Hoyl",
+        "image": "https://loremflickr.com/300/300"
+      }
+    ]
+  }
+}
+```
+ 7. **discontinueRockPebbleRelationship(rock, pebble)**  *Updates a Rock and Pebble Relationship to inactive*
+  * Example Query
+ ```
+mutation {
+    discontinueRockPebbleRelationship(
+      input: {
+        rockId: "1"
+        pebbleId: "4"
+        reason:"I'm too busy."
+        userRelationship: "pebble"
+      })
+    {
+      myRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      myPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      }
+      pendingPebbles {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+      pendingRocks {
+        name
+        module
+        program
+        id
+        pronouns
+        skills
+        slack
+        image
+      } 
+    }
+  }
+ ```
+  * Example Response
+```json
+{
+  "data": {
+    "discontinueRockPebbleRelationship": {
+      "myRocks": [],
+      "myPebbles": [],
+      "pendingPebbles": [],
+      "pendingRocks": []
+    }
+  }
+}
+```
