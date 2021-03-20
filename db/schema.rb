@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_175936) do
+ActiveRecord::Schema.define(version: 2020_10_15_032052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,25 @@ ActiveRecord::Schema.define(version: 2020_02_26_175936) do
     t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
+  create_table "outgoing_email_communications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "response_body"
+    t.string "response_status"
+    t.integer "message_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_outgoing_email_communications_on_user_id"
+  end
+
+  create_table "outgoing_sms_communications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.integer "message_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_outgoing_sms_communications_on_user_id"
+  end
+
   create_table "pairings", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -31,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_02_26_175936) do
     t.string "date"
     t.string "notes"
     t.string "time"
+  end
+
+  create_table "rock_and_pebbles", force: :cascade do |t|
+    t.integer "rock_id"
+    t.integer "pebble_id"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "pending", default: true
   end
 
   create_table "skills", force: :cascade do |t|
@@ -53,8 +81,11 @@ ActiveRecord::Schema.define(version: 2020_02_26_175936) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "firebase_id"
     t.integer "mod"
+    t.boolean "rock_opt_in", default: false
   end
 
   add_foreign_key "interests", "users"
+  add_foreign_key "outgoing_email_communications", "users"
+  add_foreign_key "outgoing_sms_communications", "users"
   add_foreign_key "skills", "users"
 end

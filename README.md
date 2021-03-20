@@ -6,6 +6,7 @@
 - [Local Deployment](#local-deployment)
 - [Dev Team](#dev-team)
 - [Description](#description)
+- [Rock & Pebble Feature](#rock--pebble-feature)
 - [Agile Development](#agile-development)
 - [Technologies & Architectures](#technologies--architecture)
 - [React & Redux Tutorial](#react--redux-tutorial)
@@ -24,11 +25,19 @@ See this [Deployment Guide](local_setup_guide.md) for detailed instructions on h
 
 ## Dev Team
 
-Paired 2.0's dev team is:
- - Carleigh Crockett ([GitHub](https://github.com/Capleugh), [LinkedIn](https://www.linkedin.com/in/carleighcrockett/))
- - Daniel Frampton ([GitHub](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
- - Matt Simon ([GitHub](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
- - Rebecca Robran ([GitHub](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+Paired 2.0's dev team:
+ - Carleigh Crockett ([@Capleugh](https://github.com/Capleugh), [LinkedIn](https://www.linkedin.com/in/carleighcrockett/))
+ - Daniel Frampton ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Matt Simon ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
+ - Rebecca Robran ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+
+Rock & Pebble feature's dev team:
+ - Rebecca Robran, BE/FE ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+ - Rachel Lew, BE ([@rlew421](https://github.com/rlew421), [LinkedIn](https://www.linkedin.com/in/rlew/))
+ - Matt Simon, BE ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
+ - Linda Le, BE ([@linda-le1](https://github.com/linda-le1), [LinkedIn](https://www.linkedin.com/in/linda-lewang/))
+ - Daniel Frampton, BE/FE ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Caleb Haizlett, FE ([@CHaiz15](https://github.com/CHaiz15), [LinkedIn](https://www.linkedin.com/in/caleb-haizlett/))
 
 ## Description
 
@@ -37,6 +46,12 @@ This repo contains the Paired 2.0 Back-end, a GraphQL API built with Ruby on Rai
 Together, these micro-services facilitate paired programming and peer mentoring between [Turing](http://turing.io) students throughout their seven-month immersive program. Students later in the program can create available booking slots, and students earlier in the program can browse those and book paired sessions.
 
 Paired 2.0 was built by a team of students in Turing's Back-End Engineering program. It adds SMS and email notifications of bookings and a user statistics dashboard to the [original Paired app](http://paired.tech) ([front-end repo](https://github.com/hillstew/paired-fe), [back-end repo](https://github.com/dForDeveloper/paired-api)) which was built by Front-end students in April of 2019. They graciously allowed contributions to the app and were helpful throughout this process.
+
+## Rock & Pebble Feature
+
+The Rock & Pebble feature adds the ability for Paired users to offer to be peer mentors, search for and request peer mentors, and manage their mentors/mentees. Building on the previous 2.0 work, it sends descriptive email notifications throughout the process.  By adding this feature we hope to support the grassroots tradition at Turing of upper-module students ("rocks") being partnered with lower-module students ("pebbles") to support their journey. 
+
+The Rock & Pebble feature was developed over the course of 2020 by a group of 1909 back-end and front-end graduates, some from the original dev team and some new contributors.
 
 ## Agile Development
 
@@ -124,6 +139,17 @@ To make live queries to the GraphQL endpoint and see live schema information, se
   - [deletePairings](graphql_endpoints.md#delete-pairings)
 - Filter Queries
   - [getPairing](graphql_endpoints.md#get-pairing)
+- Rock & Pebble Queries & Mutations
+  - Queries
+    - [getUserRockAndPebbles](graphql_endpoints.md#get-user-rocks-and-pebbles)
+  - Mutations
+    - [rockOptInOut](graphql_endpoints.md#rock-opt-in-out)
+    - [createRockPebbleRelationship](graphql_endpoints.md#create-rock-pebble-relationship)
+    - [activateRockPebbleRelationship](graphql_endpoints.md#activate-rock-pebble-relationship)
+    - [declineRockPebbleRelationship](graphql_endpoints.md#decline-rock-pebble-relationship)
+    - [discontinueRockPebbleRelationship](graphql_endpoints.md#discontinue-rock-pebble-relationship)
+  - Filter Queries
+    - [findAvailableRocks](graphql_endpoints.md#find-available-rocks)
 
 ## Resource Credits
 

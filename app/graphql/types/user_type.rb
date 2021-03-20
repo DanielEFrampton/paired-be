@@ -13,6 +13,7 @@ module Types
     field :image, String, null: false
     field :phone_number, String, null: true
     field :firebase_id, String, null: false
+    field :rock_opt_in, Boolean, null: false
 
     field :skills, [String], null: true
 
@@ -20,6 +21,13 @@ module Types
     field :total_mentor_hours, Float, null: true
     field :total_hours_mentored, Float, null: true
     field :mentees, [Types::UserType], null: true
+
+    field :rocks, [Types::UserType], null: true
+    field :pebbles, [Types::UserType], null: true
+    field :my_rocks, [Types::UserType], null: true
+    field :my_pebbles, [Types::UserType], null: true
+    field :pending_pebbles, [Types::UserType], null: true
+    field :pending_rocks, [Types::UserType], null: true
 
     def skills
       object.skills.map do |skill|
@@ -41,6 +49,22 @@ module Types
 
     def mentees
       object.unique_mentees
+    end
+
+    def my_rocks
+      object.active_rocks
+    end
+
+    def my_pebbles
+      object.active_pebbles
+    end
+
+    def pending_pebbles
+      object.pending_pebbles
+    end
+
+    def pending_rocks
+      object.pending_rocks
     end
   end
 end

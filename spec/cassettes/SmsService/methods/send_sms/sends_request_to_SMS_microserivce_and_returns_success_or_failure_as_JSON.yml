@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - gunicorn/20.0.4
       Date:
-      - Sat, 22 Feb 2020 18:46:29 GMT
+      - Thu, 01 Oct 2020 18:51:50 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -38,9 +38,9 @@ http_interactions:
       encoding: UTF-8
       string: '{"response":"success"}
 
-'
+        '
     http_version: null
-  recorded_at: Sat, 22 Feb 2020 18:46:29 GMT
+  recorded_at: Thu, 01 Oct 2020 18:51:50 GMT
 - request:
     method: post
     uri: https://paired-sms.herokuapp.com/request
@@ -66,7 +66,7 @@ http_interactions:
       Server:
       - gunicorn/20.0.4
       Date:
-      - Sat, 22 Feb 2020 18:46:29 GMT
+      - Thu, 01 Oct 2020 18:51:50 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -79,7 +79,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"response":"Invalid request"}
 
-'
+        '
     http_version: null
-  recorded_at: Sat, 22 Feb 2020 18:46:29 GMT
+  recorded_at: Thu, 01 Oct 2020 18:51:50 GMT
 recorded_with: VCR 5.1.0

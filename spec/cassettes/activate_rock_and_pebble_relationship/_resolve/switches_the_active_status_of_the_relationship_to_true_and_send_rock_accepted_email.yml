@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sendgrid.com/v3/mail/send
+    body:
+      encoding: UTF-8
+      string: '{"body":{"boundary":null,"preamble":null,"epilogue":null,"charset":"US-ASCII","part_sort_order":["text/plain","text/enriched","text/html","multipart/alternative"],"parts":[],"raw_source":"\u003c!DOCTYPE
+        html\u003e\r\n\u003chtml\u003e\r\n  \u003chead\u003e\r\n    \u003cmeta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=utf-8\" /\u003e\r\n    \u003clink href=\"https://fonts.googleapis.com/css?family=Oswald\u0026display=swap\"
+        rel=\"stylesheet\"\u003e\r\n    \u003cstyle\u003e\r\n      /* Email styles
+        need to be inline */\r\n    \u003c/style\u003e\r\n  \u003c/head\u003e\r\n\r\n  \u003cbody\u003e\r\n    \u003ch1
+        style=\"font-family: ''Oswald''; text-color:#525b86;\" width=\"250\"\u003ePaired\u003c/h1\u003e\r\nBeau
+        Tye has accepted your Rock request. Please use their contact\r\n                information
+        provided in your Rock \u0026amp; Pebble dashboard at https://www.paired.tech\r\n                to
+        get in touch with them and say Hi!\r\n\r\n\u003cp\u003eSincerely, \u003cbr\u003eThe
+        Paired Team\u003c/p\u003e\r\n\r\n\r\n  \u003c/body\u003e\r\n\u003c/html\u003e\r\n","ascii_only":true,"encoding":"7bit"},"body_raw":null,"separate_parts":false,"text_part":null,"html_part":null,"errors":null,"header":[{"name":"From","unparsed_value":"no_reply@paired.tech","charset":"UTF-8","field_order_id":10,"field":{"charset":"UTF-8","name":"From","length":null,"element":null,"value":"no_reply@paired.tech","address_list":{"addresses":[{"parsed":true,"data":{"raw":"no_reply@paired.tech","domain":"paired.tech","comments":[],"local":"no_reply","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"To","unparsed_value":"tabitha.hilll@turnerkertzmann.com","charset":"UTF-8","field_order_id":13,"field":{"charset":"UTF-8","name":"To","length":null,"element":null,"value":"tabitha.hilll@turnerkertzmann.com","address_list":{"addresses":[{"parsed":true,"data":{"raw":"tabitha.hilll@turnerkertzmann.com","domain":"turnerkertzmann.com","comments":[],"local":"tabitha.hilll","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"Subject","unparsed_value":"Your
+        Rock request has been accepted!","charset":"UTF-8","field_order_id":19,"field":{"charset":"UTF-8","errors":[],"name":"Subject","length":null,"element":null,"value":"Your
+        Rock request has been accepted!"}},{"name":"Mime-Version","unparsed_value":"1.0","charset":"UTF-8","field_order_id":22,"field":{"charset":"UTF-8","name":"Mime-Version","length":null,"element":{"major":"1","minor":"0"},"value":"1.0"}},{"name":"Content-Type","unparsed_value":"text/html","charset":"UTF-8","field_order_id":23,"field":{"charset":"UTF-8","main_type":"text","sub_type":null,"parameters":{"charset":"UTF-8"},"name":"Content-Type","length":null,"element":{"main_type":"text","sub_type":"html","parameters":[]},"value":"text/html"}}],"charset":"UTF-8","defaulted_charset":false,"smtp_envelope_from":null,"smtp_envelope_to":null,"perform_deliveries":true,"raise_delivery_errors":true,"delivery_handler":{"abstract":false,"action_methods":["rock_accepted_message","paired_link","rock_denied_message","pebble_relationship_discontinued","rock_relationship_discontinued","confirmation_message","record_outgoing_message"],"mailer_name":"rock_pebble_mailer","parent_name":null,"_prefixes":["rock_pebble_mailer","application_mailer"],"view_context_class":{},"_config":{}},"delivery_method":{"settings":{}},"transport_encoding":{},"mark_for_delete":false,"raw_source":""}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - sendgrid/6.1.0;ruby
+      Authorization:
+      - 'Bearer '
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 30 Sep 2020 20:01:07 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '88'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - https://sendgrid.api-docs.io
+      Access-Control-Allow-Methods:
+      - POST
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+      Access-Control-Max-Age:
+      - '600'
+      X-No-Cors-Reason:
+      - https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"message":"Permission denied, wrong credentials","field":null,"help":null}]}'
+    http_version: null
+  recorded_at: Wed, 30 Sep 2020 20:01:07 GMT
+- request:
+    method: post
+    uri: https://api.sendgrid.com/v3/mail/send
+    body:
+      encoding: UTF-8
+      string: '{"body":{"boundary":null,"preamble":null,"epilogue":null,"charset":"US-ASCII","part_sort_order":["text/plain","text/enriched","text/html","multipart/alternative"],"parts":[],"raw_source":"\u003c!DOCTYPE
+        html\u003e\r\n\u003chtml\u003e\r\n  \u003chead\u003e\r\n    \u003cmeta http-equiv=\"Content-Type\"
+        content=\"text/html; charset=utf-8\" /\u003e\r\n    \u003clink href=\"https://fonts.googleapis.com/css?family=Oswald\u0026display=swap\"
+        rel=\"stylesheet\"\u003e\r\n    \u003cstyle\u003e\r\n      /* Email styles
+        need to be inline */\r\n    \u003c/style\u003e\r\n  \u003c/head\u003e\r\n\r\n  \u003cbody\u003e\r\n    \u003ch1
+        style=\"font-family: ''Oswald''; text-color:#525b86;\" width=\"250\"\u003ePaired\u003c/h1\u003e\r\nBeau
+        Tye has accepted your Rock request. Please use their contact\r\n                information
+        provided in your Rock \u0026amp; Pebble dashboard at https://www.paired.tech\r\n                to
+        get in touch with them and say Hi!\r\n\r\n\u003cp\u003eSincerely, \u003cbr\u003eThe
+        Paired Team\u003c/p\u003e\r\n\r\n\r\n  \u003c/body\u003e\r\n\u003c/html\u003e\r\n","ascii_only":true,"encoding":"7bit"},"body_raw":null,"separate_parts":false,"text_part":null,"html_part":null,"errors":null,"header":[{"name":"From","unparsed_value":"no_reply@paired.tech","charset":"UTF-8","field_order_id":10,"field":{"charset":"UTF-8","name":"From","length":null,"element":null,"value":"no_reply@paired.tech","address_list":{"addresses":[{"parsed":true,"data":{"raw":"no_reply@paired.tech","domain":"paired.tech","comments":[],"local":"no_reply","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"To","unparsed_value":"tabitha.hilll@turnerkertzmann.com","charset":"UTF-8","field_order_id":13,"field":{"charset":"UTF-8","name":"To","length":null,"element":null,"value":"tabitha.hilll@turnerkertzmann.com","address_list":{"addresses":[{"parsed":true,"data":{"raw":"tabitha.hilll@turnerkertzmann.com","domain":"turnerkertzmann.com","comments":[],"local":"tabitha.hilll","obs_domain_list":null,"display_name":null,"group":null,"error":null}}],"group_names":[]}}},{"name":"Subject","unparsed_value":"Your
+        Rock request has been accepted!","charset":"UTF-8","field_order_id":19,"field":{"charset":"UTF-8","errors":[],"name":"Subject","length":null,"element":null,"value":"Your
+        Rock request has been accepted!"}},{"name":"Mime-Version","unparsed_value":"1.0","charset":"UTF-8","field_order_id":22,"field":{"charset":"UTF-8","name":"Mime-Version","length":null,"element":{"major":"1","minor":"0"},"value":"1.0"}},{"name":"Content-Type","unparsed_value":"text/html","charset":"UTF-8","field_order_id":23,"field":{"charset":"UTF-8","main_type":"text","sub_type":null,"parameters":{"charset":"UTF-8"},"name":"Content-Type","length":null,"element":{"main_type":"text","sub_type":"html","parameters":[]},"value":"text/html"}}],"charset":"UTF-8","defaulted_charset":false,"smtp_envelope_from":null,"smtp_envelope_to":null,"perform_deliveries":true,"raise_delivery_errors":true,"delivery_handler":{"abstract":false,"action_methods":["rock_accepted_message","paired_link","rock_denied_message","pebble_relationship_discontinued","rock_relationship_discontinued","confirmation_message","record_outgoing_message"],"mailer_name":"rock_pebble_mailer","parent_name":null,"_prefixes":["rock_pebble_mailer","application_mailer"],"view_context_class":{},"_config":{}},"delivery_method":{"settings":{}},"transport_encoding":{},"mark_for_delete":false,"raw_source":""}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - sendgrid/6.1.0;ruby
+      Authorization:
+      - 'Bearer '
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 30 Sep 2020 20:01:08 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '88'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - https://sendgrid.api-docs.io
+      Access-Control-Allow-Methods:
+      - POST
+      Access-Control-Allow-Headers:
+      - Authorization, Content-Type, On-behalf-of, x-sg-elas-acl
+      Access-Control-Max-Age:
+      - '600'
+      X-No-Cors-Reason:
+      - https://sendgrid.com/docs/Classroom/Basics/API/cors.html
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"message":"Permission denied, wrong credentials","field":null,"help":null}]}'
+    http_version: null
+  recorded_at: Wed, 30 Sep 2020 20:01:08 GMT
+recorded_with: VCR 5.1.0
