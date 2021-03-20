@@ -26,18 +26,18 @@ See this [Deployment Guide](local_setup_guide.md) for detailed instructions on h
 ## Dev Team
 
 Paired 2.0's dev team:
- - Carleigh Crockett (@Capleugh, [LinkedIn](https://www.linkedin.com/in/carleighcrockett/))
- - Daniel Frampton (@DanielEFrampton, [LinkedIn](https://www.linkedin.com/in/danielframpton/))
- - Matt Simon (@msimon42, [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
- - Rebecca Robran (@rer7891, [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+ - Carleigh Crockett ([@Capleugh](https://github.com/Capleugh), [LinkedIn](https://www.linkedin.com/in/carleighcrockett/))
+ - Daniel Frampton ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Matt Simon ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
+ - Rebecca Robran ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
 
 Rock & Pebble feature's dev team:
- - Rebecca Robran (@rer7891, [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
- - Rachel Lew (@rlew421, [LinkedIn](https://www.linkedin.com/in/rlew/))
- - Matt Simon (@msimon42, [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
- - Linda Le (@linda-le1, [LinkedIn](https://www.linkedin.com/in/linda-lewang/))
- - Daniel Frampton (@DanielEFrampton, [LinkedIn](https://www.linkedin.com/in/danielframpton/))
- - Caleb Haizlett (@CHaiz15, [LinkedIn](https://www.linkedin.com/in/caleb-haizlett/))
+ - Rebecca Robran ([@rer7891](https://github.com/rer7891), [LinkedIn](https://www.linkedin.com/in/rebecca-robran/))
+ - Rachel Lew ([@rlew421](https://github.com/rlew421), [LinkedIn](https://www.linkedin.com/in/rlew/))
+ - Matt Simon ([@msimon42](https://github.com/msimon42), [LinkedIn](https://www.linkedin.com/in/matt-simon-83aa5380/))
+ - Linda Le ([@linda-le1](https://github.com/linda-le1), [LinkedIn](https://www.linkedin.com/in/linda-lewang/))
+ - Daniel Frampton ([@DanielEFrampton](https://github.com/DanielEFrampton), [LinkedIn](https://www.linkedin.com/in/danielframpton/))
+ - Caleb Haizlett ([@CHaiz15](https://github.com/CHaiz15), [LinkedIn](https://www.linkedin.com/in/caleb-haizlett/))
 
 ## Description
 
