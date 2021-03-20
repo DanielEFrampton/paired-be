@@ -49,7 +49,7 @@ Paired 2.0 was built by a team of students in Turing's Back-End Engineering prog
 
 ## Rock & Pebble Feature
 
-The Rock & Pebble feature adds the ability for Paired users to offer to be peer mentors, search for and request peer mentors, and manage their mentors/mentees. Building on the previous 2.0 work, it sends descriptive email notifications throughout the process.  By adding this feature we hope to support a grassroots tradition at Turing of upper-module students ("rocks") being partnered with lower-module students ("pebbles") to support their journey. 
+The Rock & Pebble feature adds the ability for Paired users to offer to be peer mentors, search for and request peer mentors, and manage their mentors/mentees. Building on the previous 2.0 work, it sends descriptive email notifications throughout the process.  By adding this feature we hope to support the grassroots tradition at Turing of upper-module students ("rocks") being partnered with lower-module students ("pebbles") to support their journey. 
 
 The Rock & Pebble feature was developed over the course of 2020 by a group of 1909 back-end and front-end graduates, some from the original dev team and some new contributors.
 
