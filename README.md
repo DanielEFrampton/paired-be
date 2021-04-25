@@ -1,4 +1,4 @@
-# Landslide: Paired 2.0
+# Paired Back-End
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Deployed App
 
-Vist the deployed Paired 2.0 app at [https://www.paired.tech](https://www.paired.tech).
+Vist the deployed Paired app at [https://www.paired.tech](https://www.paired.tech).
 
 ## Local Deployment
 
@@ -41,7 +41,7 @@ Rock & Pebble feature's dev team:
 
 ## Description
 
-This repo contains the Paired 2.0 Back-end, a GraphQL API built with Ruby on Rails and PostgreSQL. It provides data, logic, and other services to a React/Redux Front-end ([paired-fe](https://github.com/DanielEFrampton/paired-fe)), and communicates with a Flask micro-service which handles SMS text notifications ([paired-sms](https://github.com/msimon42/paired-sms)).
+This repo contains the Paired 2.0 Back-end, a GraphQL API built with Ruby on Rails and PostgreSQL. It provides data, logic, and other services to a React/Redux Front-end ([paired-fe](https://github.com/hillstew/paired-fe)), and communicates with a Flask micro-service which handles SMS text notifications ([paired-sms](https://github.com/msimon42/paired-sms)).
 
 Together, these micro-services facilitate paired programming and peer mentoring between [Turing](http://turing.io) students throughout their seven-month immersive program. Students later in the program can create available booking slots, and students earlier in the program can browse those and book paired sessions.
 
@@ -76,7 +76,7 @@ Soon thereafter the team had [a "DTR" meeting](https://gist.github.com/DanielEFr
 - Background Workers: Sidekiq and Redis
 - Performance Tracking: Skylight
 
-## React and Redux Tutorial
+## React & Redux Tutorial
 
 As a team of back-end engineers, stepping into a JavaScript-heavy tech stack was an incredible and bewildering learning experience. To help share that learning with our fellow students in the back-end program, we wrote this tutorial: [Explain It Like I'm a Back-ender: React and Redux](react_redux_guide.md).
 
