@@ -58,5 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'graphiql-rails', group: :development
 gem 'sendgrid-ruby'
-gem 'sidekiq', '~> 4.2.10'
+gem 'sidekiq', '~> 6.4.0'
 gem 'sinatra'
