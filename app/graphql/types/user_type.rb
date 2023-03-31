@@ -2,7 +2,8 @@ module Types
   class UserType < Types::BaseObject
     field :id, ID, null: false
     field :name, String, null: false
-    field :module, String,
+    field :module,
+          String,
           null: false,
           method: :mod,
           method_conflict_warning: false
@@ -12,7 +13,7 @@ module Types
     field :email, String, null: false
     field :image, String, null: false
     field :phone_number, String, null: true
-    field :firebase_id, String, null: false
+    field :firebase_i_d, String, null: false
     field :rock_opt_in, Boolean, null: false
 
     field :skills, [String], null: true
@@ -30,9 +31,7 @@ module Types
     field :pending_rocks, [Types::UserType], null: true
 
     def skills
-      object.skills.map do |skill|
-        skill.name
-      end
+      object.skills.map { |skill| skill.name }
     end
 
     def total_bookings

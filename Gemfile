@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem "puma", ">= 4.3.3"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -27,11 +27,12 @@ gem 'rack-cors'
 
 gem 'faraday'
 gem 'figaro'
-gem 'graphql'
-gem 'search_object_graphql'
+gem 'graphql', '~> 1.12.4'
+gem 'search_object_graphql', '0.3.1'
 gem 'skylight'
 gem 'sprockets', '~> 3'
-gem 'travis'
+gem 'ffi', '~> 1.15.5'
+# gem 'travis'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,14 +1,20 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'discontinue rock and pebble relationship', type: :request do
-  describe 'resolve', :vcr do
+RSpec.describe "discontinue rock and pebble relationship", type: :request do
+  describe "resolve", :vcr do
     before :each do
       @user_1 = create :user
       @user_2 = create :user
       @user_3 = create :user
       @user_1.pebbles << [@user_2, @user_3]
-      RockAndPebble.where(pebble_id: @user_2.id).update(active: true, pending: false)
-      RockAndPebble.where(pebble_id: @user_3.id).update(active: true, pending: false)
+      RockAndPebble.where(pebble_id: @user_2.id).update(
+        active: true,
+        pending: false,
+      )
+      RockAndPebble.where(pebble_id: @user_3.id).update(
+        active: true,
+        pending: false,
+      )
       @rock_and_pebble = RockAndPebble.where(pebble_id: @user_3).first
 
       @query = <<~GQL
@@ -50,16 +56,14 @@ RSpec.describe 'discontinue rock and pebble relationship', type: :request do
       @rock = @rock_and_pebble.rock
     end
 
-    it 'discontinues the rock and pebble relationship' do
+    it "discontinues the rock and pebble relationship" do
       expect(@rock_and_pebble.active).to eq(true)
-      post '/graphql', params: {query: @query}
+      post "/graphql", params: { query: @query }
       result = JSON.parse(response.body)["data"]["rock_and_pebble"]
-
-      expect(result['myRocks']).to be_empty
-      expect(result['myPebbles'].first["name"]).to eq("#{@user_2.name}")
-      expect(result['pendingPebbles']).to be_empty
+      expect(result["myRocks"]).to be_empty
+      expect(result["myPebbles"].first["name"]).to eq("#{@user_2.name}")
+      expect(result["pendingPebbles"]).to be_empty
       expect(@rock_and_pebble.reload.active).to eq(false)
     end
   end
 end
-

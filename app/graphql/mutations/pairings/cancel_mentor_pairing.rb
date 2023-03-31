@@ -24,7 +24,11 @@ module Mutations
       def notifications(pairing)
         message = create_message(pairing)
         contact_info = pairing.pairer_contact_info
-        NotificationsWorker.perform_later(contact_info, message, :cancel_message)
+        NotificationsWorker.perform_later(
+          contact_info,
+          message,
+          :cancel_message,
+        )
       end
     end
   end

@@ -17,7 +17,7 @@ module Mutations
 
       def resolve(attributes)
         new_skills = attributes.delete(:skills)
-
+        attributes[:firebase_id] =  attributes.delete :firebase_i_d
         user = User.where(id: attributes[:id]).first
         user.update(attributes)
 
