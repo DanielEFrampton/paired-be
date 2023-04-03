@@ -15,12 +15,11 @@ module Mutations
             .where(active: true)
             .first
         send_pebble_email(rock_and_pebble, attributes)
-
         rock_and_pebble.update(active: false)
         if attributes[:user_relationship] == "pebble"
-          User.find_by(id: attributes[:rock_id])
-        else
           User.find_by(id: attributes[:pebble_id])
+        else
+          User.find_by(id: attributes[:rock_id])
         end
       end
 
